@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="superstore.FXML.Warehouse.AddController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.Warehouse.AddController">
    <children>
       <ChoiceBox fx:id="mainCB" layoutX="225.0" layoutY="95.0" prefWidth="150.0" />
       <ChoiceBox fx:id="catCB" layoutX="226.0" layoutY="175.0" prefWidth="150.0" />
@@ -21,10 +20,10 @@
       </Label>
       <AnchorPane fx:id="ap2" layoutX="1.0" layoutY="336.0" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: blue;">
          <children>
-            <TextField fx:id="priceTF" layoutX="123.0" layoutY="48.0" promptText="Enter Price" />
-            <TextField fx:id="kTF" layoutX="123.0" layoutY="147.0" promptText="Enter k" />
-            <TextField fx:id="quantityTF" layoutX="123.0" layoutY="97.0" promptText="Enter Quantity" />
-            <TextField fx:id="hTF" layoutX="123.0" layoutY="197.0" promptText="Enter h" />
+            <TextField fx:id="priceTF" alignment="CENTER" layoutX="123.0" layoutY="48.0" promptText="Enter Price" />
+            <TextField fx:id="kTF" alignment="CENTER" layoutX="123.0" layoutY="147.0" promptText="Enter k" />
+            <TextField fx:id="quantityTF" alignment="CENTER" layoutX="123.0" layoutY="97.0" promptText="Enter Quantity" />
+            <TextField fx:id="hTF" alignment="CENTER" layoutX="123.0" layoutY="197.0" promptText="Enter h" />
             <Button fx:id="addItem" layoutX="387.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickOnAdd" prefHeight="51.0" prefWidth="90.0" text="Add Item" />
          </children>
       </AnchorPane>
