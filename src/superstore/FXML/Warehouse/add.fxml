@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="superstore.FXML.Warehouse.AddController">
+   <children>
+      <ChoiceBox fx:id="mainCB" layoutX="225.0" layoutY="95.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="catCB" layoutX="226.0" layoutY="175.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="subCB" layoutX="226.0" layoutY="214.0" prefWidth="150.0" />
+      <TextField fx:id="TF" layoutX="226.0" layoutY="254.0" onKeyReleased="#check" />
+      <Label layoutX="188.0" layoutY="33.0" text="Add Category/Sub-Category/Item">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="ap2" layoutX="1.0" layoutY="336.0" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: blue;">
+         <children>
+            <TextField fx:id="priceTF" layoutX="123.0" layoutY="48.0" promptText="Enter Price" />
+            <TextField fx:id="kTF" layoutX="123.0" layoutY="147.0" promptText="Enter k" />
+            <TextField fx:id="quantityTF" layoutX="123.0" layoutY="97.0" promptText="Enter Quantity" />
+            <TextField fx:id="hTF" layoutX="123.0" layoutY="197.0" promptText="Enter h" />
+            <Button fx:id="addItem" layoutX="387.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickOnAdd" prefHeight="51.0" prefWidth="90.0" text="Add Item" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="addcommon" layoutX="261.0" layoutY="303.0" mnemonicParsing="false" onAction="#add1" prefHeight="25.0" prefWidth="80.0" text="Add" />
+   </children>
+</AnchorPane>

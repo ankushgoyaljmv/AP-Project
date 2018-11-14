@@ -14,5 +14,6 @@
       <Label fx:id="warehouseNameLabel" alignment="CENTER" layoutX="200.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" />
       <Button fx:id="itemButton1" layoutX="314.0" layoutY="280.0" mnemonicParsing="false" onAction="#itemButtonOnClick1" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Category" />
       <Button fx:id="itemButton2" layoutX="314.0" layoutY="347.0" mnemonicParsing="false" onAction="#itemButtonOnClick2" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Sub-Category" />
+      <Button fx:id="addB" layoutX="174.0" layoutY="143.0" mnemonicParsing="false" onAction="#goToAdd" prefHeight="25.0" prefWidth="250.0" text="Add" />
    </children>
 </AnchorPane>
