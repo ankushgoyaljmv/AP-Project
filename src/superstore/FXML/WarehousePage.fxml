@@ -15,5 +15,6 @@
       <Button fx:id="itemButton1" layoutX="314.0" layoutY="280.0" mnemonicParsing="false" onAction="#itemButtonOnClick1" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Category" />
       <Button fx:id="itemButton2" layoutX="314.0" layoutY="347.0" mnemonicParsing="false" onAction="#itemButtonOnClick2" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Sub-Category" />
       <Button fx:id="addB" layoutX="174.0" layoutY="143.0" mnemonicParsing="false" onAction="#goToAdd" prefHeight="25.0" prefWidth="250.0" text="Add" />
+      <Button fx:id="deleteB" layoutX="174.0" layoutY="181.0" mnemonicParsing="false" onAction="#goToDelete" prefHeight="25.0" prefWidth="250.0" text="Delete" />
    </children>
 </AnchorPane>

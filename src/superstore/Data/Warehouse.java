@@ -136,14 +136,35 @@ public class Warehouse implements Functionalities,Serializable{
     public void deleteCategory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public void deleteSub_Category() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    public void deleteSub_Category(int index,int index1) {
+        Item temp;
+        Item itemTemp = new Item();
+        
+        for (int i = 0; i < this.categories.get(index).getSubcategories().get(index1).getItems().size(); i++) {
+            temp = this.categories.get(index).getSubcategories().get(index1).getItems().get(i);
+            
+            itemTemp.setName(temp.getName().trim());
+            int index2 = this.items.indexOf(itemTemp);
+            int index3 = this.categories.get(index).getSubcategories().get(index1).getItems().indexOf(itemTemp);
+            //deleteing that item
+            deleteItem(index,index1,index2,index3);
+        }
+        
+        System.out.println("AFTER DELTING ITEMS");
+        this.categories.get(index).getSubcategories().remove(index1);
+        System.out.println("SUBCATEGORY REMOVED");
+    }
+    
     @Override
     public void deleteItem(int index,int index1,int index2,int index3) {
+        // cat | sub | items Index | cat>sub>items Index
         if(index2>this.items.size() || index2==-1)
             System.out.println("ERROR CANT DELETE AND ITEM WHICH IS NOT PRESENT");
         else{
@@ -151,6 +172,7 @@ public class Warehouse implements Functionalities,Serializable{
             this.categories.get(index).getSubcategories().get(index1).getItems().remove(index3);
         }
     }
+    
 
     @Override
     public void display() {

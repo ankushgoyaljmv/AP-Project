@@ -319,7 +319,7 @@ public class AddItemPopUpController implements Initializable {
         int index3 = this.warehouse.getCategories().get(index).getSubcategories().get(index1).getItems().indexOf(itemTemp);
         
         System.out.println("index of item:- " + this.nameTF.getText().trim() + "-- " + index2);
-        this.warehouse.deleteItem(index,index1,index2,index3);
+        this.warehouse.deleteItem(index,index1,index2,index3);//THIS LINE REMOVED,CAREFULL
         //NOT WORKING   CHECK ITEMS REFERENCES
         System.out.println("ITEM DELETED");
         

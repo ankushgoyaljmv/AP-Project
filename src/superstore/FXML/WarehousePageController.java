@@ -20,6 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import superstore.Data.Warehouse;
 import superstore.FXML.Warehouse.AddController;
+import superstore.FXML.Warehouse.DeleteController;
 
 /**
  * FXML Controller class
@@ -32,6 +33,8 @@ public class WarehousePageController implements Initializable {
     Button itemButton;
     @FXML
     Button addB;
+    @FXML
+    Button deleteB;
     
     @FXML
     ChoiceBox otherwarehouse;
@@ -124,5 +127,24 @@ public class WarehousePageController implements Initializable {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+    
+    public void goToDelete() throws IOException{
+        System.out.println("inside gotoadd");
+        String s="Warehouse/delete.fxml";
+        
+        System.out.println("S:- " + s);
+        FXMLLoader loader1 = new FXMLLoader(getClass().getResource(s));
+        Parent root = (Pane)loader1.load();
+        
+        loader1.<DeleteController>getController().initialize(warehouse);
+        Scene scene = new Scene(root, 600,600);
+        Stage stage = new Stage();
+        
+        stage.setTitle("SuperStore Management");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
     }
 }
