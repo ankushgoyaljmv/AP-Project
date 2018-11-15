@@ -235,6 +235,7 @@ public class SuperUserPageController implements Initializable {
         this.storeAP.setVisible(true);
         this.storeIDL.setText(this.storeIDL.getText().trim() + " " + this.stores.getStoreID());
 
+        
         //superuser.createStore();
         System.out.println("CREATING STORE");
     }
@@ -253,6 +254,8 @@ public class SuperUserPageController implements Initializable {
         this.checkCancelWDB.setVisible(true);
         this.checkWDB.setVisible(true);
 
+        refresh();
+        
         //superuser.display(new Warehouse());
         System.out.println("DISPLAYING WAREHOUSE ___  DATA");
     }
