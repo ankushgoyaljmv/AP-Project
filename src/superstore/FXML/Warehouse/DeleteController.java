@@ -176,7 +176,14 @@ public class DeleteController implements Initializable {
     }
     
     public void delCat(){
-        System.out.println("deleteing categories");
+        System.out.println("delteing categories");
+        
+        int index = this.catCB.getSelectionModel().getSelectedIndex();
+        
+        this.warehouse.deleteCategory(index);
+        System.out.println("AFTER DELCAT METHOD");
+        
+        //CHECK THIS METHOD,might we wrong,TILL-201118-0549PM
     }
         
     public void reset(){

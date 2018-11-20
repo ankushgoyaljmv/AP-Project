@@ -137,11 +137,47 @@ public class Warehouse implements Functionalities,Serializable{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public void deleteCategory(int index) {
+        Sub_Category temp;
+        Item itemTemp = new Item();
+        
+        
+        
+        for (int i = 0; i < this.categories.get(index).getSubcategories().size(); i++) {
+            this.deleteSub_Category(index, i, false);
+        }
+        
+        System.out.println("AFTER DELETING ITEMS");
+        this.categories.get(index).getSubcategories().clear();//clearing all sub categories
+        this.categories.remove(index);//removing the category
+        System.out.println("CATEGORY REMOVED");
+    }
+    
     @Override
     public void deleteSub_Category() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    public void deleteSub_Category(int index,int index1,boolean deletesub) {
+        Item temp;
+        Item itemTemp = new Item();
+        
+        for (int i = 0; i < this.categories.get(index).getSubcategories().get(index1).getItems().size(); i++) {
+            temp = this.categories.get(index).getSubcategories().get(index1).getItems().get(i);
+            
+            itemTemp.setName(temp.getName().trim());
+            int index2 = this.items.indexOf(itemTemp);
+            int index3 = this.categories.get(index).getSubcategories().get(index1).getItems().indexOf(itemTemp);
+            //deleteing that item
+            deleteItem(index,index1,index2,index3);
+        }
+        
+        System.out.println("AFTER DELTING ITEMS");
+        if(deletesub)
+            this.categories.get(index).getSubcategories().remove(index1);
+        System.out.println("SUBCATEGORY REMOVED");
+    }
     
     public void deleteSub_Category(int index,int index1) {
         Item temp;
@@ -176,7 +212,21 @@ public class Warehouse implements Functionalities,Serializable{
 
     @Override
     public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        System.out.println("\n\ncategories-->");
+        for (int i = 0; i < this.categories.size(); i++) {
+            System.out.println("category name:- " + this.categories.get(i).getName());
+            for (int j = 0; j < this.categories.get(i).getSubcategories().size(); j++) {
+                System.out.println("subcategory:- " + this.categories.get(i).getSubcategories().get(j).getName());
+                System.out.println("ITEMS--");
+                for (int k = 0; k < this.categories.get(i).getSubcategories().get(j).getItems().size(); k++) {
+                    System.out.println("Item no-" + k + "      :- " + this.categories.get(i).getSubcategories().get(j).getItems().get(k).getName() );
+                }
+                System.out.println("");
+            }
+            System.out.println("\n");
+        }
+        
     }
 
     @Override

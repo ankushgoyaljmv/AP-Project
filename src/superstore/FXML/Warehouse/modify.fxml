@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.Warehouse.ModifyController">
+   <children>
+      <Button fx:id="addcommon" layoutX="431.0" layoutY="305.0" mnemonicParsing="false" onAction="#add1" prefHeight="25.0" prefWidth="80.0" text="Modify" />
+      <AnchorPane fx:id="ap2" layoutX="11.0" layoutY="346.0" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: blue;">
+         <children>
+            <TextField fx:id="priceTF" alignment="CENTER" layoutX="182.0" layoutY="48.0" promptText="Enter Price" />
+            <TextField fx:id="quantityTF" alignment="CENTER" layoutX="182.0" layoutY="97.0" promptText="Enter Quantity" />
+            <TextField fx:id="kTF" alignment="CENTER" layoutX="182.0" layoutY="147.0" promptText="Enter k" />
+            <TextField fx:id="hTF" alignment="CENTER" layoutX="182.0" layoutY="197.0" promptText="Enter h" />
+            <Button fx:id="addItem" layoutX="387.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickOnAdd" prefHeight="51.0" prefWidth="90.0" text="Modify Item" />
+            <TextField fx:id="p" alignment="CENTER" layoutX="24.0" layoutY="48.0" text="PRICE :- " />
+            <TextField fx:id="q" alignment="CENTER" editable="false" layoutX="24.0" layoutY="97.0" text="QUANTITY :-" />
+            <TextField fx:id="k" alignment="CENTER" editable="false" layoutX="24.0" layoutY="149.0" text="K :-" />
+            <TextField fx:id="h" alignment="CENTER" editable="false" layoutX="24.0" layoutY="197.0" text="H :-" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="198.0" layoutY="43.0" text="Add Category/Sub-Category/Item">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TF" layoutX="244.0" layoutY="305.0" />
+      <ChoiceBox fx:id="subCB" layoutX="236.0" layoutY="224.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="catCB" layoutX="236.0" layoutY="185.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="mainCB" layoutX="235.0" layoutY="105.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="itemCB" layoutX="235.0" layoutY="266.0" prefWidth="150.0" />
+      <TextField fx:id="TF1" alignment="CENTER" editable="false" layoutX="74.0" layoutY="305.0" text="Name" />
+   </children>
+</AnchorPane>

@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import superstore.Data.Warehouse;
 import superstore.FXML.Warehouse.AddController;
 import superstore.FXML.Warehouse.DeleteController;
+import superstore.FXML.Warehouse.ModifyController;
 
 /**
  * FXML Controller class
@@ -35,6 +36,8 @@ public class WarehousePageController implements Initializable {
     Button addB;
     @FXML
     Button deleteB;
+    @FXML
+    Button modifyB;
     
     @FXML
     ChoiceBox otherwarehouse;
@@ -72,6 +75,12 @@ public class WarehousePageController implements Initializable {
     public void itemButtonOnClick2() throws IOException{
         System.out.println("item button2 clicked");
         nextScreen(3);
+    }
+    
+    public void display(){
+        System.out.println("\nDISPLAYING");
+        this.warehouse.display();
+        System.out.println("END OF DISPLAY\n\n");
     }
  
     public void nextScreen(int n) throws IOException{//n--> 1-item  2-subcategory  3-category
@@ -138,6 +147,25 @@ public class WarehousePageController implements Initializable {
         Parent root = (Pane)loader1.load();
         
         loader1.<DeleteController>getController().initialize(warehouse);
+        Scene scene = new Scene(root, 600,600);
+        Stage stage = new Stage();
+        
+        stage.setTitle("SuperStore Management");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+    }
+    
+    public void goToModify() throws IOException{
+        System.out.println("inside gotomodify");
+        String s="Warehouse/modify.fxml";
+        
+        System.out.println("S:- " + s);
+        FXMLLoader loader1 = new FXMLLoader(getClass().getResource(s));
+        Parent root = (Pane)loader1.load();
+        
+        loader1.<ModifyController>getController().initialize(warehouse);
         Scene scene = new Scene(root, 600,600);
         Stage stage = new Stage();
         

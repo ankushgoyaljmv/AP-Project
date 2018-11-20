@@ -8,13 +8,14 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.WarehousePageController">
    <children>
-      <Button fx:id="itemButton" layoutX="314.0" layoutY="215.0" mnemonicParsing="false" onAction="#itemButtonOnClick" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Item" />
+      <Button fx:id="itemButton" layoutX="288.0" layoutY="419.0" mnemonicParsing="false" onAction="#itemButtonOnClick" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Item" />
       <Label alignment="CENTER" layoutX="212.0" layoutY="34.0" prefHeight="40.0" prefWidth="177.0" text="Welcome Warehouse Admin" />
       <ChoiceBox fx:id="otherwarehouse" layoutX="62.0" layoutY="517.0" prefWidth="150.0" />
       <Label fx:id="warehouseNameLabel" alignment="CENTER" layoutX="200.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" />
-      <Button fx:id="itemButton1" layoutX="314.0" layoutY="280.0" mnemonicParsing="false" onAction="#itemButtonOnClick1" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Category" />
-      <Button fx:id="itemButton2" layoutX="314.0" layoutY="347.0" mnemonicParsing="false" onAction="#itemButtonOnClick2" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Sub-Category" />
+      <Button fx:id="itemButton1" layoutX="301.0" layoutY="490.0" mnemonicParsing="false" onAction="#itemButtonOnClick1" prefHeight="40.0" prefWidth="274.0" text="Add/Delete/Modify Category" />
+      <Button fx:id="itemButton2" layoutX="314.0" layoutY="347.0" mnemonicParsing="false" onAction="#display" prefHeight="40.0" prefWidth="274.0" text="Display" />
       <Button fx:id="addB" layoutX="174.0" layoutY="143.0" mnemonicParsing="false" onAction="#goToAdd" prefHeight="25.0" prefWidth="250.0" text="Add" />
       <Button fx:id="deleteB" layoutX="174.0" layoutY="181.0" mnemonicParsing="false" onAction="#goToDelete" prefHeight="25.0" prefWidth="250.0" text="Delete" />
+      <Button fx:id="modifyB" layoutX="175.0" layoutY="216.0" mnemonicParsing="false" onAction="#goToModify" prefHeight="25.0" prefWidth="250.0" text="Modify" />
    </children>
 </AnchorPane>

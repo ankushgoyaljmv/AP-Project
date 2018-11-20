@@ -267,22 +267,22 @@ public class SuperUserPageController implements Initializable {
         if (index >= 0) {
 
             //DELETE BELOW CODE
-            Item temp = new Item();
-            temp.setName("Test@DISPLAYDATA");
-            temp.setPrice(99.52);
-            temp.setQuantity(12);
-
-            Item temp1 = new Item();
-            temp1.setName("Test@DISPLAYDATA2");
-            temp1.setPrice(691.752);
-            temp1.setQuantity(102);
-
-            this.warehouses.getAllwarehouses().get(index).addCategory("test@category1");
-            Category c = this.warehouses.getAllwarehouses().get(index).getCategories().get(0);
-
-            this.warehouses.getAllwarehouses().get(index).addSub_Category("test@subcategory1", c);
-            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp);
-            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp1);
+//            Item temp = new Item();
+//            temp.setName("Test@DISPLAYDATA");
+//            temp.setPrice(99.52);
+//            temp.setQuantity(12);
+//
+//            Item temp1 = new Item();
+//            temp1.setName("Test@DISPLAYDATA2");
+//            temp1.setPrice(691.752);
+//            temp1.setQuantity(102);
+//
+//            this.warehouses.getAllwarehouses().get(index).addCategory("test@category1");
+//            Category c = this.warehouses.getAllwarehouses().get(index).getCategories().get(0);
+//
+//            this.warehouses.getAllwarehouses().get(index).addSub_Category("test@subcategory1", c);
+//            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp);
+//            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp1);
             //TILL HERE
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
