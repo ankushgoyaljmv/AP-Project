@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +23,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import superstore.Data.AllStores;
@@ -49,6 +52,8 @@ public class LoginController implements Initializable {
     @FXML
     private Button resetButton;
     @FXML
+    private Button backB;
+    @FXML
     private ToggleButton showPassword;
     @FXML
     private Label isFine;
@@ -74,7 +79,7 @@ public class LoginController implements Initializable {
         this.type = type;
 
         //CHEATCODE
-        this.loginDatabase.getWarehouseDatabase().put("z", new Warehouse_Admin("z","z",new Warehouse(99,"test@cheatcode")));
+//        this.loginDatabase.getWarehouseDatabase().put("z", new Warehouse_Admin("z","z",new Warehouse(99,"test@cheatcode")));
         //
         
         
@@ -249,7 +254,7 @@ public class LoginController implements Initializable {
         Parent root = (Pane)loader.load();
         Scene scene;
         Stage stage;
-        loader.<WarehousePageController>getController().initialize(warehouse);
+        loader.<WarehousePageController>getController().initialize(warehouse,warehouses);
         scene = new Scene(root, 600,600);
         stage = new Stage();
         
@@ -257,6 +262,18 @@ public class LoginController implements Initializable {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+ 
+    
+    public void goBack(ActionEvent event){
+        
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        //CHECK THIS IF DOESNT WORK
+    }
+    
+    public void enterpress(KeyEvent ke){
+        if (ke.getCode().equals(KeyCode.ENTER))
+            this.validateLogin();
     }
     
 }

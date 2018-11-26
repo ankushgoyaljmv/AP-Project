@@ -16,8 +16,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import superstore.Data.AllWarehouses;
 import superstore.Data.Warehouse;
 import superstore.FXML.Warehouse.AddController;
 import superstore.FXML.Warehouse.DeleteController;
@@ -38,6 +40,8 @@ public class WarehousePageController implements Initializable {
     Button deleteB;
     @FXML
     Button modifyB;
+    @FXML
+    Button otherwarehousedata;
     
     @FXML
     ChoiceBox otherwarehouse;
@@ -46,6 +50,8 @@ public class WarehousePageController implements Initializable {
     Label warehouseNameLabel;
 
     private Warehouse warehouse;
+    private AllWarehouses warehouses;
+    
     /**
      * Initializes the controller class.
      */
@@ -54,11 +60,17 @@ public class WarehousePageController implements Initializable {
         // TODO
     }    
     
-    public void initialize(Warehouse warehouse) {
+    public void initialize(Warehouse warehouse,AllWarehouses warehouses) {
         this.warehouse = warehouse;
+        this.warehouses = warehouses;
         this.warehouseNameLabel.setText("Warehouse Name :- " + this.warehouse.getName());
         
+        this.otherwarehouse.setTooltip(new Tooltip("Select Warehouse"));
         
+        this.otherwarehouse.getItems().clear();
+        for (int i = 0; i < this.warehouses.getAllwarehouses().size(); i++) {
+            this.otherwarehouse.getItems().add(this.warehouses.getAllwarehouses().get(i).getName());
+        }
         
     }    
     
@@ -81,6 +93,21 @@ public class WarehousePageController implements Initializable {
         System.out.println("\nDISPLAYING");
         this.warehouse.display();
         System.out.println("END OF DISPLAY\n\n");
+    }
+    
+    public void guiDisplay() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
+        Parent root = (Pane) loader.load();
+        Scene scene;
+        Stage stage;
+        loader.<WarehouseDataDisplayController>getController().initialize(this.warehouse, 1);//FIX this using choichbox and complete it
+        scene = new Scene(root, 600, 600);
+        stage = new Stage();
+
+        stage.setTitle("SuperStore Management");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
  
     public void nextScreen(int n) throws IOException{//n--> 1-item  2-subcategory  3-category
@@ -174,5 +201,27 @@ public class WarehousePageController implements Initializable {
         stage.setResizable(false);
         stage.show();
 
+    }
+    
+    public void showotherWD() throws IOException{
+        
+        int index = this.otherwarehouse.getSelectionModel().getSelectedIndex();
+        if(index>=0){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
+            Parent root = (Pane) loader.load();
+            Scene scene;
+            Stage stage;
+            loader.<WarehouseDataDisplayController>getController().initialize(this.warehouses.getAllwarehouses().get(index), 1);//FIX this using choichbox and complete it
+            scene = new Scene(root, 600, 600);
+            stage = new Stage();
+
+            stage.setTitle("SuperStore Management");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+        else{
+            System.out.println("SELECT SOME OTHER WAREHOUSE FIRST");
+        }
     }
 }

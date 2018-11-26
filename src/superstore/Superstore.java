@@ -63,12 +63,12 @@ public class Superstore extends Application {
     public void start(Stage primaryStage) throws IOException {
 //        loginDatabase.put("user", "qwerty12Q");
         //DELETE THE BELOW LINE
-        this.loginDatabase.getWarehouses().getAllwarehouses().add(new Warehouse(200,"test"));
-        Warehouse_Admin wa = new Warehouse_Admin("root","Qazwsx12",this.loginDatabase.getWarehouses().getAllwarehouses().get(0));
-        wa.getWarehouse().addCategory("WarehouseAdmin@Category1");
-        wa.getWarehouse().addSub_Category("WarehouseAdmin@Sub-Category1",wa.getWarehouse().getCategories().get(0));
-        wa.getWarehouse().addItem(wa.getWarehouse().getCategories().get(0),wa.getWarehouse().getCategories().get(0).getSubcategories().get(0));
-        this.loginDatabase.getWarehouseDatabase().put("test", wa);
+//        this.loginDatabase.getWarehouses().getAllwarehouses().add(new Warehouse(200,"test"));
+//        Warehouse_Admin wa = new Warehouse_Admin("root","Qazwsx12",this.loginDatabase.getWarehouses().getAllwarehouses().get(0));
+//        wa.getWarehouse().addCategory("WarehouseAdmin@Category1");
+//        wa.getWarehouse().addSub_Category("WarehouseAdmin@Sub-Category1",wa.getWarehouse().getCategories().get(0));
+//        wa.getWarehouse().addItem(wa.getWarehouse().getCategories().get(0),wa.getWarehouse().getCategories().get(0).getSubcategories().get(0));
+//        this.loginDatabase.getWarehouseDatabase().put("test", wa);
         //
         System.out.println("lolllll");
 

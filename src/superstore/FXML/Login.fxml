@@ -33,16 +33,17 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Buttons.css" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="userName" alignment="CENTER" layoutX="56.0" layoutY="251.0" prefHeight="25.0" prefWidth="266.0" promptText="Username" />
-            <PasswordField fx:id="password" alignment="CENTER" layoutX="56.0" layoutY="276.0" onKeyReleased="#check" prefHeight="25.0" prefWidth="266.0" promptText="Password" />
-            <Button fx:id="loginButton" alignment="CENTER" layoutX="52.0" layoutY="301.0" mnemonicParsing="false" onAction="#validateLogin" text="Login" />
-            <Button fx:id="resetButton" alignment="CENTER" layoutX="254.0" layoutY="301.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+            <TextField fx:id="userName" alignment="CENTER" layoutX="175.0" layoutY="221.0" onKeyPressed="#enterpress" prefHeight="25.0" prefWidth="266.0" promptText="Username" />
+            <PasswordField fx:id="password" alignment="CENTER" layoutX="175.0" layoutY="246.0" onKeyPressed="#enterpress" onKeyReleased="#check" prefHeight="25.0" prefWidth="266.0" promptText="Password" />
+            <Button fx:id="loginButton" alignment="CENTER" layoutX="108.0" layoutY="301.0" mnemonicParsing="false" onAction="#validateLogin" text="Login" />
+            <Button fx:id="resetButton" alignment="CENTER" layoutX="308.0" layoutY="301.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
             <Label fx:id="userType" layoutX="170.0" layoutY="105.0" prefHeight="64.0" prefWidth="275.0">
                <font>
                   <Font size="25.0" />
                </font></Label>
-            <ToggleButton fx:id="showPassword" layoutX="273.0" layoutY="357.0" mnemonicParsing="false" text="Show Password" />
-            <Label fx:id="isFine" layoutX="322.0" layoutY="277.0" prefHeight="24.0" prefWidth="255.0" />
+            <ToggleButton fx:id="showPassword" layoutX="451.0" layoutY="246.0" mnemonicParsing="false" text="Show Password" />
+            <Label fx:id="isFine" alignment="CENTER" layoutX="80.0" layoutY="276.0" prefHeight="24.0" prefWidth="457.0" />
+            <Button fx:id="backB" layoutX="370.0" layoutY="503.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
          </children>
       </AnchorPane>
    </center>
