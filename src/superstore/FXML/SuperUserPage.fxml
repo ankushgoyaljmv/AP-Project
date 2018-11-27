@@ -22,10 +22,11 @@
       <Button fx:id="checkWD" layoutX="51.0" layoutY="253.0" mnemonicParsing="false" onAction="#showWarehouseData" stylesheets="@Buttons.css" text="Check Warehouse Data" />
       <AnchorPane fx:id="warehouseAP" layoutX="318.0" layoutY="64.0" prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: blue;">
          <children>
-            <Label fx:id="warehouseIDL" alignment="CENTER" layoutX="56.0" layoutY="40.0" prefHeight="17.0" prefWidth="129.0" text="Warehouse ID :-" />
-            <TextField fx:id="warehouseNameTF" alignment="CENTER" layoutX="46.0" layoutY="73.0" promptText="Enter Warehouse Name" />
-            <Button fx:id="warehouseAddB" layoutX="64.0" layoutY="107.0" mnemonicParsing="false" onAction="#addWarehouseAdd" text="Add" />
-            <Button fx:id="warehouseCancelB" layoutX="121.0" layoutY="107.0" mnemonicParsing="false" onAction="#cancelWarehouseAdd" text="Cancel" />
+            <Label fx:id="warehouseIDL" alignment="CENTER" layoutX="57.0" layoutY="20.0" prefHeight="17.0" prefWidth="129.0" text="Warehouse ID :-" />
+            <TextField fx:id="warehouseNameTF" alignment="CENTER" layoutX="46.0" layoutY="49.0" promptText="Enter Warehouse Name" />
+            <Button fx:id="warehouseAddB" layoutX="71.0" layoutY="113.0" mnemonicParsing="false" onAction="#addWarehouseAdd" text="Add" />
+            <Button fx:id="warehouseCancelB" layoutX="122.0" layoutY="113.0" mnemonicParsing="false" onAction="#cancelWarehouseAdd" text="Cancel" />
+            <TextField fx:id="wDB" alignment="CENTER" layoutX="47.0" layoutY="82.0" promptText="Enter D" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="storeAP" layoutX="318.0" layoutY="217.0" prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: red;">
@@ -50,7 +51,7 @@
       <Button fx:id="checkSDB" layoutX="274.0" layoutY="419.0" mnemonicParsing="false" onAction="#showSD" text="Show" />
       <Button fx:id="checkCancelWDB" layoutX="337.0" layoutY="385.0" mnemonicParsing="false" onAction="#cancelWDB" text="Cancel" />
       <Button fx:id="checkCancelSDB" layoutX="337.0" layoutY="419.0" mnemonicParsing="false" onAction="#cancelSDB" text="Cancel" />
-      <AnchorPane fx:id="warehouseAdminAP" layoutX="318.0" layoutY="113.0" prefHeight="200.0" prefWidth="241.0" style="-fx-background-color: grey;">
+      <AnchorPane fx:id="warehouseAdminAP" layoutX="318.0" layoutY="117.0" prefHeight="200.0" prefWidth="241.0" style="-fx-background-color: grey;">
          <children>
             <TextField fx:id="loginTF" alignment="CENTER" layoutX="46.0" layoutY="34.0" promptText="Enter Login ID" />
             <TextField fx:id="passwordTF" alignment="CENTER" layoutX="46.0" layoutY="75.0" promptText="Enter Password" />

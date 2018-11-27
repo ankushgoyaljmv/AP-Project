@@ -15,6 +15,7 @@ import java.util.Objects;
 public class Warehouse implements Functionalities,Serializable{
     
     private int ID;
+    private double D;
     private String name;
     private ArrayList<Store> stores;
     private ArrayList<Item> items;
@@ -35,6 +36,14 @@ public class Warehouse implements Functionalities,Serializable{
 
     public Warehouse_Admin getAdmin() {
         return admin;
+    }
+
+    public double getD() {
+        return D;
+    }
+
+    public void setD(double D) {
+        this.D = D;
     }
 
 

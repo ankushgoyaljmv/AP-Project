@@ -304,6 +304,7 @@ public class AddController implements Initializable {
             String subcategory = this.warehouse.getCategories().get(index).getSubcategories().get(index1).getName();
 
             itemTemp.setPath(category + ">" + subcategory);
+            itemTemp.setEOQ(this.warehouse.getD());
             this.warehouse.addItem(this.warehouse.getCategories().get(index), this.warehouse.getCategories().get(index).getSubcategories().get(index1),itemTemp);
             System.out.println(itemTemp);
             System.out.println("ITEM ADDED");

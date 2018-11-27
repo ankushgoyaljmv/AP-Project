@@ -95,9 +95,10 @@ public class Item implements Serializable{
     public double getEOQ() {
         return EOQ;
     }
-
-    public void setEOQ(double EOQ) {
-        this.EOQ = EOQ;
+    
+    public void setEOQ(double D) {
+        
+        this.EOQ = Math.ceil(Math.sqrt( (2*D*this.K)/this.H ));
     }
 
     public long getUID() {

@@ -61,6 +61,8 @@ public class SuperUserPageController implements Initializable {
     @FXML
     Button addW;
     @FXML
+    TextField wDB;
+    @FXML
     Button addS;
     @FXML
     Button warehouseCancelB;
@@ -126,8 +128,7 @@ public class SuperUserPageController implements Initializable {
         this.superuser = superuser;
         this.warehouses = warehouses;
         this.stores = stores;
-        
-        
+
         this.warehouseAP.setVisible(false);
         this.storeAP.setVisible(false);
         this.warehouseID.setVisible(false);
@@ -235,7 +236,6 @@ public class SuperUserPageController implements Initializable {
         this.storeAP.setVisible(true);
         this.storeIDL.setText(this.storeIDL.getText().trim() + " " + this.stores.getStoreID());
 
-        
         //superuser.createStore();
         System.out.println("CREATING STORE");
     }
@@ -255,7 +255,7 @@ public class SuperUserPageController implements Initializable {
         this.checkWDB.setVisible(true);
 
         refresh();
-        
+
         //superuser.display(new Warehouse());
         System.out.println("DISPLAYING WAREHOUSE ___  DATA");
     }
@@ -284,12 +284,11 @@ public class SuperUserPageController implements Initializable {
 //            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp);
 //            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp1);
             //TILL HERE
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
             Parent root = (Pane) loader.load();
             Scene scene;
             Stage stage;
-            loader.<WarehouseDataDisplayController>getController().initialize(this.warehouses.getAllwarehouses().get(index),1);//FIX this using choichbox and complete it
+            loader.<WarehouseDataDisplayController>getController().initialize(this.warehouses.getAllwarehouses().get(index), 1);//FIX this using choichbox and complete it
             scene = new Scene(root, 600, 600);
             stage = new Stage();
 
@@ -341,7 +340,7 @@ public class SuperUserPageController implements Initializable {
             Parent root = (Pane) loader.load();
             Scene scene;
             Stage stage;
-            loader.<WarehouseDataDisplayController>getController().initialize(this.stores.getAllstores().get(index),2);//FIX this using choichbox and complete it
+            loader.<WarehouseDataDisplayController>getController().initialize(this.stores.getAllstores().get(index), 2);//FIX this using choichbox and complete it
             scene = new Scene(root, 600, 600);
             stage = new Stage();
 
@@ -360,7 +359,7 @@ public class SuperUserPageController implements Initializable {
             this.checkWD.setDisable(false);
             this.consoleTA.setText("");
         } else {
-            this.consoleTA.setText("SELECT A WAREHOUSE FIRST");
+            this.consoleTA.setText("SELECT A STORE FIRST");
         }
 
     }
@@ -398,9 +397,13 @@ public class SuperUserPageController implements Initializable {
     public void addWarehouseAdd() {
         int id = this.warehouses.getWarehouseID();
         String name = this.warehouseNameTF.getText().trim();
+        String dd = this.wDB.getText();
 
-        if (!name.isEmpty()) {
+        if (!name.isEmpty() && !dd.isEmpty()) {
+
+            Double d = Double.parseDouble(dd.trim());
             Warehouse temp = new Warehouse(id, name);
+            temp.setD(d);
             this.warehouses.getAllwarehouses().add(temp);
             this.warehouses.incrementWarehouseID();
 
@@ -418,12 +421,18 @@ public class SuperUserPageController implements Initializable {
 
             this.warehouseIDL.setText("Warehouse ID :- ");
             this.warehouseNameTF.setText("");
+            this.wDB.setText("");
 
             refresh();
         } else {
 
             //in console
-            String s = "YOU MUST ENTER WAREHOUSE NAME";
+            String s="";
+            if(name.isEmpty())
+                s = "YOU MUST ENTER WAREHOUSE NAME";
+            else if(dd.isEmpty())
+                s = "YOU MUST ENTER D";
+            
             this.consoleTA.setText(s);
         }
 
@@ -468,6 +477,7 @@ public class SuperUserPageController implements Initializable {
         this.addW.setDisable(false);
         this.warehouseIDL.setText("Warehouse ID :- ");
         this.warehouseNameTF.setText("");
+        this.wDB.setText("");
         this.consoleTA.setText("");
     }
 
@@ -503,7 +513,7 @@ public class SuperUserPageController implements Initializable {
                 //TILL YESTERDAY NIGHT
 
                 System.out.println("TEST");
-                
+
                 this.warehouseAdminAP.setVisible(false);
                 this.createWA.setDisable(false);
                 this.loginTF.setText("");
