@@ -22,7 +22,6 @@ public class Warehouse_Admin implements Serializable{
         this.password = password;
     }
 
-    
     public String getLoginid() {
         return loginid;
     }

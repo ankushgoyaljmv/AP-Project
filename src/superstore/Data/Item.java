@@ -24,17 +24,13 @@ public class Item implements Serializable{
 
     @Override
     public boolean equals(Object o) {
-        
-        return this.name.equals(((Item)o).name); //To change body of generated methods, choose Tools | Templates.
+        return this.name.equals(((Item)o).name); 
     }
 
     @Override
     public String toString() {
         return "Item{" + "path=" + path + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", H=" + H + ", K=" + K + ", EOQ=" + EOQ + ", UID=" + UID + '}';
     }
-    
-    
-    
     
     public static int getD() {
         return D;

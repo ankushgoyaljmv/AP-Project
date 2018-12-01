@@ -11,8 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import superstore.Data.Warehouse;
-import superstore.Data.Warehouse_Admin;
 import superstore.FXML.StartupController;
 
 /**
@@ -31,30 +29,26 @@ public class Superstore extends Application {
     @Override
     public void init() throws Exception {
         super.init(); 
-        loginDatabase = SaveData.readUserDatabase(loginDatabase);
-        if(loginDatabase == null){
-            loginDatabase = new User_Login_Database();
-        }
+        this.readData();
     }
 
     @Override
     public void stop() throws Exception {
         super.stop(); 
-        loginDatabase = SaveData.writeUserDatabase(loginDatabase);
+        this.writeData();
     }
     
     private void readData(){
-        
+        loginDatabase = SaveData.readUserDatabase(loginDatabase);
+        if(loginDatabase == null){
+            loginDatabase = new User_Login_Database();
+        }
     }
     
     private void writeData(){
-        
+        loginDatabase = SaveData.writeUserDatabase(loginDatabase);
     }
     
-    private void login(){
-        
-    }
-
     public User_Login_Database getLoginDatabase() {
         return loginDatabase;
     }
@@ -70,14 +64,14 @@ public class Superstore extends Application {
 //        wa.getWarehouse().addItem(wa.getWarehouse().getCategories().get(0),wa.getWarehouse().getCategories().get(0).getSubcategories().get(0));
 //        this.loginDatabase.getWarehouseDatabase().put("test", wa);
         //
-        System.out.println("lolllll");
-
-
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/Startup.fxml"));
         Parent root = (Pane)loader.load();
         loader.<StartupController>getController().initialize(loginDatabase,this.loginDatabase.getWarehouses(),this.loginDatabase.getStores(),this.loginDatabase.getSuperuser());
         Scene scene = new Scene(root, height,width);
-        
+        primaryStage.setTitle("SuperStore Management");
+        primaryStage.setScene(scene);
+        primaryStage.show();
 //        primaryStage.setOnCloseRequest(e -> {
 //            try {
 //                stop();
@@ -87,10 +81,8 @@ public class Superstore extends Application {
 //            }
 //        });
 //        
-        primaryStage.setTitle("SuperStore Management");
-        primaryStage.setScene(scene);
 //        primaryStage.setResizable(false);
-        primaryStage.show();
+        
     }
 
     /**

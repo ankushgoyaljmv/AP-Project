@@ -65,8 +65,6 @@ public class Warehouse implements Functionalities,Serializable{
         return true;
     }
 
-    
-    
     public int getID() {
         return ID;
     }
@@ -217,7 +215,6 @@ public class Warehouse implements Functionalities,Serializable{
             this.categories.get(index).getSubcategories().get(index1).getItems().remove(index3);
         }
     }
-    
 
     @Override
     public void display() {

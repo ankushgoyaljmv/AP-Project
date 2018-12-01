@@ -52,7 +52,6 @@ public class User_Login_Database implements Serializable{
         return warehouseDatabase;
     }
 
-
     public HashMap<String, Store_Admin> getStoreDatabase() {
         return storeDatabase;
     }
