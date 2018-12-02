@@ -93,23 +93,22 @@ public class StartupController implements Initializable {
     
     public void endUserOnPress(){
         System.out.println("ENDUSER");
-//        try {
-//            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("EndUser.fxml"));
-//            Parent root = (Pane) loader1.load();
-////        Parent root = FXMLLoader.load(Superstore.class.getResource("FXML/Login.fxml"));
-//            loader1.<EndUserController>getController().initialize();
-//            scene = new Scene(root, 600, 600);
-//            stage = new Stage();
-//
-//            stage.setTitle("SuperStore Management");
-//            stage.setScene(scene);
-//            stage.setResizable(false);
-//            stage.show();
-//            
-//        } catch (IOException ex) {
-//            System.out.println("WTH");
-//            Logger.getLogger(StartupController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("UserView.fxml"));
+            Parent root = (Pane) loader1.load();
+            loader1.<UserViewController>getController().initialize(this.stores);
+            scene = new Scene(root, 600, 600);
+            stage = new Stage();
+
+            stage.setTitle("SuperStore Management");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+            
+        } catch (IOException ex) {
+            System.out.println("WTH");
+            Logger.getLogger(StartupController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         System.out.println("In startup:- complete this thing first" );
 
@@ -125,7 +124,6 @@ public class StartupController implements Initializable {
     private void goToLoginPage(int type) throws IOException{
         FXMLLoader loader1 = new FXMLLoader(getClass().getResource("Login.fxml"));
         Parent root = (Pane)loader1.load();
-//        Parent root = FXMLLoader.load(Superstore.class.getResource("FXML/Login.fxml"));
         loader1.<LoginController>getController().initialize(loginDatabase,warehouses,stores,superuser,type);
         scene = new Scene(root, 600,600);
         stage = new Stage();

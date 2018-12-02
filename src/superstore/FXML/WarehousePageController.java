@@ -180,4 +180,8 @@ public class WarehousePageController implements Initializable {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
     
+    public void del(){
+        this.warehouse.getAdmin().handleOrders(this.warehouses);
+    }
+    
 }

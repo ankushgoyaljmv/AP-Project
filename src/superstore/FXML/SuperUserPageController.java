@@ -6,7 +6,6 @@ package superstore.FXML;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,8 +23,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import superstore.Data.AllStores;
 import superstore.Data.AllWarehouses;
-import superstore.Data.Category;
-import superstore.Data.Item;
 import superstore.Data.Store;
 import superstore.Data.Store_Admin;
 import superstore.Data.Superuser;
@@ -139,9 +136,6 @@ public class SuperUserPageController implements Initializable {
     private AllWarehouses warehouses;
     private AllStores stores;
     private User_Login_Database loginDatabase;
-
-    ArrayList<Integer> test;
-    static int count = 1;
 
     Scene scene;
     Stage stage;
@@ -270,20 +264,11 @@ public class SuperUserPageController implements Initializable {
 
     }
 
-    public void add() {
-        test.add(count++);
-    }
-
-    public void print() {
-        System.out.println("in superuser:-" + test);
-    }
-
     public void addWarehouse() {
         this.addW.setDisable(true);
         this.warehouseAP.setVisible(true);
         this.warehouseIDL.setText(this.warehouseIDL.getText().trim() + " " + this.warehouses.getWarehouseID());
 
-        //superuser.createWarehouse();
         System.out.println("CREATING WAREHOUSE ");
 
     }
@@ -293,7 +278,6 @@ public class SuperUserPageController implements Initializable {
         this.storeAP.setVisible(true);
         this.storeIDL.setText(this.storeIDL.getText().trim() + " " + this.stores.getStoreID());
 
-        //superuser.createStore();
         System.out.println("CREATING STORE");
     }
 
@@ -329,7 +313,6 @@ public class SuperUserPageController implements Initializable {
 
         refresh();
 
-        //superuser.display(new Warehouse());
         System.out.println("DISPLAYING WAREHOUSE ___  DATA");
     }
 
@@ -339,24 +322,6 @@ public class SuperUserPageController implements Initializable {
 
         if (index >= 0) {
 
-            //DELETE BELOW CODE
-//            Item temp = new Item();
-//            temp.setName("Test@DISPLAYDATA");
-//            temp.setPrice(99.52);
-//            temp.setQuantity(12);
-//
-//            Item temp1 = new Item();
-//            temp1.setName("Test@DISPLAYDATA2");
-//            temp1.setPrice(691.752);
-//            temp1.setQuantity(102);
-//
-//            this.warehouses.getAllwarehouses().get(index).addCategory("test@category1");
-//            Category c = this.warehouses.getAllwarehouses().get(index).getCategories().get(0);
-//
-//            this.warehouses.getAllwarehouses().get(index).addSub_Category("test@subcategory1", c);
-//            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp);
-//            this.warehouses.getAllwarehouses().get(index).addItem(this.warehouses.getAllwarehouses().get(index).getCategories().get(0), this.warehouses.getAllwarehouses().get(index).getCategories().get(0).getSubcategories().get(0), temp1);
-            //TILL HERE
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
             Parent root = (Pane) loader.load();
             loader.<WarehouseDataDisplayController>getController().initialize(this.warehouses.getAllwarehouses().get(index), 1);//FIX this using choichbox and complete it
@@ -370,7 +335,6 @@ public class SuperUserPageController implements Initializable {
 
             this.warehouseCB.setVisible(false);
             this.warehouseID.setVisible(false);
-            //this.warehouseAddB.setVisible(false);
             this.warehouseCancelB.setVisible(false);
             this.checkCancelWDB.setVisible(false);
             this.checkWDB.setVisible(false);
@@ -388,25 +352,6 @@ public class SuperUserPageController implements Initializable {
 
         if (index >= 0) {
 
-            //DELETE BELOW CODE
-            Item temp = new Item();
-            temp.setName("STest@DISPLAYDATA");
-            temp.setPrice(99.52);
-            temp.setQuantity(12);
-
-            Item temp1 = new Item();
-            temp1.setName("STest@DISPLAYDATA2");
-            temp1.setPrice(691.752);
-            temp1.setQuantity(102);
-
-            this.stores.getAllstores().get(index).addCategory("test@category1");
-            Category c = this.stores.getAllstores().get(index).getCategories().get(0);
-
-            this.stores.getAllstores().get(index).addSub_Category("test@subcategory1", c);
-            this.stores.getAllstores().get(index).addItem(this.stores.getAllstores().get(index).getCategories().get(0), this.stores.getAllstores().get(index).getCategories().get(0).getSubcategories().get(0), temp);
-            this.stores.getAllstores().get(index).addItem(this.stores.getAllstores().get(index).getCategories().get(0), this.stores.getAllstores().get(index).getCategories().get(0).getSubcategories().get(0), temp1);
-            //TILL HERE
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
             Parent root = (Pane) loader.load();
             loader.<WarehouseDataDisplayController>getController().initialize(this.stores.getAllstores().get(index), 2);//FIX this using choichbox and complete it
@@ -420,7 +365,6 @@ public class SuperUserPageController implements Initializable {
 
             this.warehouseCB.setVisible(false);
             this.warehouseID.setVisible(false);
-            //this.warehouseAddB.setVisible(false);
             this.warehouseCancelB.setVisible(false);
             this.checkCancelWDB.setVisible(false);
             this.checkWDB.setVisible(false);
@@ -437,7 +381,6 @@ public class SuperUserPageController implements Initializable {
         this.checkWD.setDisable(false);
         this.warehouseCB.setVisible(false);
         this.warehouseID.setVisible(false);
-        //this.warehouseAddB.setVisible(false);
         this.checkCancelWDB.setVisible(false);
         this.checkWDB.setVisible(false);
     }
@@ -446,7 +389,6 @@ public class SuperUserPageController implements Initializable {
         this.checkSD.setDisable(false);
         this.storeCB.setVisible(false);
         this.storeID.setVisible(false);
-        //this.warehouseAddB.setVisible(false);
         this.checkCancelSDB.setVisible(false);
         this.checkSDB.setVisible(false);
     }
@@ -455,11 +397,9 @@ public class SuperUserPageController implements Initializable {
         this.checkSD.setDisable(true);
         this.storeCB.setVisible(true);
         this.storeID.setVisible(true);
-        //this.warehouseAddB.setVisible(true);
         this.checkCancelSDB.setVisible(true);
         this.checkSDB.setVisible(true);
 
-        //superuser.display(new Store(1, "noob"));
         System.out.println("DISPLAYING STORE ____ DATA");
     }
 
@@ -582,8 +522,9 @@ public class SuperUserPageController implements Initializable {
                 int index2 = this.warehouses.getAllwarehouses().indexOf(w);
                 Warehouse_Admin temp = new Warehouse_Admin(id, pswd, this.warehouses.getAllwarehouses().get(index2));
                 System.out.println("inside 2 if conditions");
-                this.consoleTA.setText("inside 2 if conditions");
+//                this.consoleTA.setText("inside 2 if conditions");
                 this.loginDatabase.getWarehouseDatabase().put(id, temp);//changed here
+                this.warehouses.getAllwarehouses().get(index2).setAdmin(temp);
                 //TILL YESTERDAY NIGHT
 
                 System.out.println("TEST");
@@ -624,8 +565,9 @@ public class SuperUserPageController implements Initializable {
                 int index2 = this.stores.getAllstores().indexOf(w);
                 Store_Admin temp = new Store_Admin(id, pswd, this.stores.getAllstores().get(index2));
                 System.out.println("inside 2 if conditions");
-                this.consoleTA.setText("inside 2 if conditions");
+//                this.consoleTA.setText("inside 2 if conditions");
                 this.loginDatabase.getStoreDatabase().put(id, temp);//changed here
+                this.stores.getAllstores().get(index2).setAdmin(temp);
                 System.out.println("PUTTED INTO STORE DATABASE");
                 //TILL YESTERDAY NIGHT
 

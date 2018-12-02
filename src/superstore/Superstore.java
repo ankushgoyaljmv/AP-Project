@@ -59,17 +59,6 @@ public class Superstore extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         
-//        primaryStage.setOnCloseRequest(e -> {
-//            try {
-//                stop();
-//            } catch (Exception ex) {
-//                Logger.getLogger(Superstore.class.getName()).log(Level.SEVERE, null, ex);
-//                System.out.println("COULDN'T STOP AND SAVE DATA CORRECTLY");
-//            }
-//        });
-//        
-//        primaryStage.setResizable(false);
-        
     }
 
     /**

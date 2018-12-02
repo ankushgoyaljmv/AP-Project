@@ -93,7 +93,6 @@ public class Item implements Serializable{
     }
     
     public void setEOQ(double D) {
-        
         this.EOQ = Math.ceil(Math.sqrt( (2*D*this.K)/this.H ));
     }
 

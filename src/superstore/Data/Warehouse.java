@@ -36,6 +36,10 @@ public class Warehouse implements Functionalities,Serializable{
         System.out.println("LOL add code here");
     }
 
+    public void setAdmin(Warehouse_Admin admin) {
+        this.admin = admin;
+    }
+
     public Warehouse_Admin getAdmin() {
         return admin;
     }
@@ -157,8 +161,6 @@ public class Warehouse implements Functionalities,Serializable{
         Sub_Category temp;
         Item itemTemp = new Item();
         
-        
-        
         for (int i = 0; i < this.categories.get(index).getSubcategories().size(); i++) {
             this.deleteSub_Category(index, i, false);
         }
@@ -257,6 +259,12 @@ public class Warehouse implements Functionalities,Serializable{
     @Override
     public void order() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void order(Item item) {
+        
+        this.admin.notification(item);
+        
     }
     
 }

@@ -23,6 +23,6 @@
       <Button fx:id="modifyB" layoutX="175.0" layoutY="263.0" mnemonicParsing="false" onAction="#goToModify" prefHeight="25.0" prefWidth="250.0" text="Modify" />
       <Button fx:id="logoutB" layoutX="465.0" layoutY="34.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="123.0" text="Logout" />
       <Button fx:id="notification" layoutX="465.0" layoutY="87.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" text="Notifications" />
-      <Button fx:id="deliver" layoutX="174.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Deliver Order" />
+      <Button fx:id="deliver" layoutX="174.0" layoutY="341.0" mnemonicParsing="false" onAction="#del" prefHeight="25.0" prefWidth="250.0" text="Deliver Order" />
    </children>
 </AnchorPane>

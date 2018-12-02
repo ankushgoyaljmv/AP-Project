@@ -75,23 +75,6 @@ public class AddController implements Initializable {
         this.catCB.setTooltip(new Tooltip("Select Category"));
         this.subCB.setTooltip(new Tooltip("Select Sub-Category"));
         
-        //CHEAT
-//        this.store.addCategory("test@category1");
-//        this.store.addCategory("test@category2");
-//        this.store.addCategory("test@category3");
-//           
-//        Category c = this.store.getCategories().get(0);
-//        this.store.addSub_Category("test@subcategory1",c);
-//        this.store.addSub_Category("test@subcategory2",c);
-//        this.store.addSub_Category("test@subcategory3",c);
-//        
-//        this.store.addItem(this.store.getCategories().get(0) , this.store.getCategories().get(0).getSubcategories().get(0));
-//        this.store.getItems().get(0).setName("Test@Item1");
-//        this.store.addItem(this.store.getCategories().get(0) , this.store.getCategories().get(0).getSubcategories().get(0));
-//        this.store.getItems().get(1).setName("Test@Item2");
-        //
-        
-        
         //ADDING DEFAULT OPTIONS - ADD - cat,sub,item
         this.mainCB.getItems().addAll("Add Category","Add Sub-Category","Add Item");
         

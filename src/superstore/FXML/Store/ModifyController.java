@@ -4,9 +4,7 @@
  */
 package superstore.FXML.Store;
 
-import superstore.FXML.Store.*;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +15,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import superstore.Data.Category;
 import superstore.Data.Item;
-import superstore.Data.Sub_Category;
 import superstore.Data.Store;
 
 /**
@@ -83,23 +80,6 @@ public class ModifyController implements Initializable {
         this.catCB.setTooltip(new Tooltip("Select Category"));
         this.subCB.setTooltip(new Tooltip("Select Sub-Category"));
         this.itemCB.setTooltip(new Tooltip("Select Item"));
-        
-        //CHEAT
-//        this.store.addCategory("test@category1");
-//        this.store.addCategory("test@category2");
-//        this.store.addCategory("test@category3");
-//           
-//        Category c = this.store.getCategories().get(0);
-//        this.store.addSub_Category("test@subcategory1",c);
-//        this.store.addSub_Category("test@subcategory2",c);
-//        this.store.addSub_Category("test@subcategory3",c);
-//        
-//        this.store.addItem(this.store.getCategories().get(0) , this.store.getCategories().get(0).getSubcategories().get(0));
-//        this.store.getItems().get(0).setName("Test@Item1");
-//        this.store.addItem(this.store.getCategories().get(0) , this.store.getCategories().get(0).getSubcategories().get(0));
-//        this.store.getItems().get(1).setName("Test@Item2");
-        //
-        
         
         //ADDING DEFAULT OPTIONS - ADD - cat,sub,item
         this.mainCB.getItems().addAll("Modify Category","Modify Sub-Category","Modify Item");

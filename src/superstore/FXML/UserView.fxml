@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.UserViewController">
+   <children>
+      <Label alignment="CENTER" layoutX="213.0" layoutY="54.0" prefHeight="40.0" prefWidth="177.0" text="Welcome User">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <ChoiceBox fx:id="storeCB" layoutX="212.0" layoutY="242.0" prefHeight="25.0" prefWidth="177.0" />
+      <Button fx:id="itemB" layoutX="212.0" layoutY="368.0" mnemonicParsing="false" onAction="#clickOnItems" prefHeight="40.0" prefWidth="177.0" text="View Items" />
+      <Label alignment="CENTER" layoutX="212.0" layoutY="174.0" prefHeight="40.0" prefWidth="177.0" text="Choose Your Store" />
+      <Button fx:id="logoutB" layoutX="446.0" layoutY="54.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="123.0" text="Logout" />
+   </children>
+</AnchorPane>

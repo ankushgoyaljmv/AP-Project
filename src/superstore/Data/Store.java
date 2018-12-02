@@ -39,6 +39,10 @@ public class Store implements Functionalities,Serializable{
         return ID;
     }
 
+    public void setAdmin(Store_Admin admin) {
+        this.admin = admin;
+    }
+
     public boolean isLinked(){
         return !(upwarehouse == null);
     }
@@ -88,7 +92,6 @@ public class Store implements Functionalities,Serializable{
         this.upwarehouse = upwarehouse;
     }
 
-    
    @Override
     public void addCategory(String name) {
        Category c = new Category(name);
@@ -138,7 +141,6 @@ public class Store implements Functionalities,Serializable{
         Sub_Category temp;
         Item itemTemp = new Item();
         
-       
         for (int i = 0; i < this.categories.get(index).getSubcategories().size(); i++) {
             this.deleteSub_Category(index, i, false);
         }
@@ -254,6 +256,10 @@ public class Store implements Functionalities,Serializable{
             return false;
         }
         return true;
+    }
+
+    public void order(Item item) {
+        this.upwarehouse.order(item);
     }
     
 }

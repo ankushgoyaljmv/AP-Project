@@ -18,7 +18,6 @@ public class Superuser implements Serializable {
     public Superuser(AllWarehouses warehouses, AllStores stores) {
         this.stores = stores;
         this.warehouses = warehouses;
-        
     }
     
     public void display(Warehouse warehouse){

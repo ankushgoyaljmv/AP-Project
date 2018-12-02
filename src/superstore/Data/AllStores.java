@@ -28,5 +28,4 @@ public class AllStores implements Serializable{
         this.storeID++;
     }
     
-    
 }
