@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,6 +48,8 @@ public class UserOrderController implements Initializable {
     @FXML
     TextField qTF;
     @FXML
+    TextField partial;
+    @FXML
     Label itemL;
     @FXML
     Label msg;
@@ -54,21 +58,31 @@ public class UserOrderController implements Initializable {
     
     private Store store;
     private Item item ;
+    ObservableList<Item> data = FXCollections.observableArrayList();
+
     
     TableColumn<Item,String> nameColumn = new TableColumn<>("Name");
     TableColumn<Item,Double> priceColumn = new TableColumn<>("Price");
     TableColumn<Item,String> IDColumn = new TableColumn<>("UID");
     TableColumn<Item,Integer> quantityColumn = new TableColumn<>("Quantity");
-        
+    
+    FilteredList<Item> filteredData ;//= new FilteredList<>(data, p -> true);
+
         
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
     
+    /**
+     *
+     * @param store
+     */
     public void initialize(Store store) {
         this.store = store;
         this.orderB.setDisable(true);
@@ -99,8 +113,47 @@ public class UserOrderController implements Initializable {
         });
         
         this.setup();
+        
+        filteredData = new FilteredList<>(data, p -> true);
+        
+        // 2. Set the filter Predicate whenever the filter changes.
+        partial.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(Item -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name field in your object with filter.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (String.valueOf(Item.getName()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                    // Filter matches first name.
+
+                } else if (String.valueOf(Item.getName()).toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                } 
+
+                return false; // Does not match.
+            });
+        });
+
+        // 3. Wrap the FilteredList in a SortedList. 
+        SortedList<Item> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(dataTV.comparatorProperty());
+        // 5. Add sorted (and filtered) data to the table.
+        dataTV.setItems(sortedData);
+        
+        
+        
     }    
  
+    /**
+     *
+     */
     public void select(){
         if(dataTV.getSelectionModel().getSelectedIndex()>=0){
             item = (Item) dataTV.getSelectionModel().getSelectedItem();
@@ -114,6 +167,9 @@ public class UserOrderController implements Initializable {
         }
     }
     
+    /**
+     *
+     */
     public void order(){
         String q = this.qTF.getText().trim();
         if(!q.isEmpty() && item!=null){
@@ -130,13 +186,13 @@ public class UserOrderController implements Initializable {
             else if(qq == avail){
                 this.store.order(item);
                 this.msg.setText("Item Ordered, THANK YOU");
-                this.dataTV.getItems().clear();
+                this.data.clear();
                 this.display();
             }
             else{
                 this.store.getItems().get(i).setQuantity(avail-qq);                
                 this.msg.setText("Item Ordered, THANK YOU");
-                this.dataTV.getItems().clear();
+                this.data.clear();
                 this.display();
             }
             //
@@ -148,10 +204,13 @@ public class UserOrderController implements Initializable {
         
     }
     
+    /**
+     *
+     */
     public void clear(){
         this.sCB.getItems().clear();
         this.cCB.getItems().clear();
-        this.dataTV.getItems().clear();
+        this.data.clear();
         this.itemL.setText("No Item Selected");
                     
         for (int i = 0; i < this.store.getCategories().size(); i++) {
@@ -160,7 +219,11 @@ public class UserOrderController implements Initializable {
         }
     }
     
-     public void back(ActionEvent event){
+    /**
+     *
+     * @param event
+     */
+    public void back(ActionEvent event){
 //        if(stage != null)
 //            stage.close();
 //        
@@ -187,6 +250,9 @@ public class UserOrderController implements Initializable {
         dataTV.getSortOrder().setAll(nameColumn,priceColumn,quantityColumn);
     }
      
+    /**
+     *
+     */
     public void display(){
         
         int cindex = this.cCB.getSelectionModel().getSelectedIndex();
@@ -204,10 +270,23 @@ public class UserOrderController implements Initializable {
             type = 3;
         }
         
+        
         dataTV.setItems(getItems(type));
+        
+        filteredData = new FilteredList<>(data, p -> true);
+        SortedList<Item> sortedData = new SortedList<>(filteredData);
+        
+        dataTV.setItems(sortedData);
+        
+        
         
     }
     
+    /**
+     *
+     * @param type
+     * @return
+     */
     public ObservableList<Item> getItems(int type){
         
         ObservableList<Item>  items = FXCollections.observableArrayList();
@@ -239,6 +318,7 @@ public class UserOrderController implements Initializable {
                 System.out.println("CHECK HERE PLZ INSIDE USERORDERCONTROLLER");
         }
         
+        this.data = items;
         return items;
     }
 }

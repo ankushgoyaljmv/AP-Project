@@ -13,12 +13,13 @@
       <Button fx:id="selectB" layoutX="175.0" layoutY="521.0" mnemonicParsing="false" onAction="#select" prefHeight="31.0" prefWidth="127.0" text="Select Item" />
       <TextField fx:id="qTF" layoutX="64.0" layoutY="521.0" prefHeight="31.0" prefWidth="106.0" promptText="Select Quantity" />
       <Button fx:id="dispB" layoutX="412.0" layoutY="27.0" mnemonicParsing="false" onAction="#display" prefHeight="25.0" prefWidth="89.0" text="Display" />
-      <TableView fx:id="dataTV" layoutX="47.0" layoutY="74.0" prefHeight="425.0" prefWidth="509.0" />
+      <TableView fx:id="dataTV" layoutX="47.0" layoutY="103.0" prefHeight="396.0" prefWidth="509.0" />
       <Button fx:id="clearB" layoutX="522.0" layoutY="27.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
       <ChoiceBox fx:id="cCB" layoutX="25.0" layoutY="27.0" prefWidth="150.0" />
       <ChoiceBox fx:id="sCB" layoutX="225.0" layoutY="27.0" prefWidth="150.0" />
       <Button fx:id="orderB" layoutX="312.0" layoutY="521.0" mnemonicParsing="false" onAction="#order" prefHeight="31.0" prefWidth="127.0" text="Order" />
       <Label fx:id="itemL" layoutX="64.0" layoutY="561.0" prefHeight="31.0" prefWidth="243.0" />
       <Label fx:id="msg" layoutX="267.0" layoutY="561.0" prefHeight="17.0" prefWidth="316.0" />
+      <TextField fx:id="partial" layoutX="226.0" layoutY="70.0" />
    </children>
 </AnchorPane>
