@@ -63,6 +63,10 @@ public class LoginController implements Initializable {
     private AllWarehouses warehouses ;
     private AllStores stores ;
     private Superuser superuser ;
+    
+    Scene scene;
+    Stage stage;
+        
     /**
      * Initializes the controller class.
      */
@@ -245,8 +249,6 @@ public class LoginController implements Initializable {
     public void goToSuperuser() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SuperUserPage.fxml"));
         Parent root = (Pane)loader.load();
-        Scene scene;
-        Stage stage;
         loader.<SuperUserPageController>getController().initialize(loginDatabase,warehouses,stores,superuser);
         scene = new Scene(root, 600,600);
         stage = new Stage();
@@ -260,8 +262,8 @@ public class LoginController implements Initializable {
     public void goToWarehouse(Warehouse warehouse) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehousePage.fxml"));
         Parent root = (Pane)loader.load();
-        Scene scene;
-        Stage stage;
+//        Scene scene;
+//        Stage stage;
         loader.<WarehousePageController>getController().initialize(warehouse,warehouses);
         scene = new Scene(root, 600,600);
         stage = new Stage();
@@ -275,8 +277,8 @@ public class LoginController implements Initializable {
     public void goToStore(Store store) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StorePage.fxml"));
         Parent root = (Pane)loader.load();
-        Scene scene;
-        Stage stage;
+//        Scene scene;
+//        Stage stage;
         loader.<StorePageController>getController().initialize(store,warehouses);
         scene = new Scene(root, 600,600);
         stage = new Stage();
@@ -289,6 +291,9 @@ public class LoginController implements Initializable {
  
     
     public void goBack(ActionEvent event){
+        
+        if(stage != null)
+            stage.close();
         
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         //CHECK THIS IF DOESNT WORK

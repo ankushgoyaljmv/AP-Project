@@ -79,5 +79,6 @@
             <Button fx:id="cLB" layoutX="442.0" layoutY="15.0" mnemonicParsing="false" onAction="#clAPB" text="Cancel" />
          </children>
       </AnchorPane>
+      <Button fx:id="logoutB" layoutX="424.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="161.0" text="Logout" />
    </children>
 </AnchorPane>

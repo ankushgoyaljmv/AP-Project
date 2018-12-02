@@ -8,6 +8,7 @@ package superstore.FXML;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,17 +42,20 @@ public class WarehousePageController implements Initializable {
     @FXML
     Button modifyB;
     @FXML
+    Button logoutB;
+    @FXML
     Button otherwarehousedata;
-    
     @FXML
     ChoiceBox otherwarehouse;
-    
     @FXML
     Label warehouseNameLabel;
 
     private Warehouse warehouse;
     private AllWarehouses warehouses;
     
+    Scene scene;
+    Stage stage;
+            
     /**
      * Initializes the controller class.
      */
@@ -98,8 +102,6 @@ public class WarehousePageController implements Initializable {
     public void guiDisplay() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
         Parent root = (Pane) loader.load();
-        Scene scene;
-        Stage stage;
         loader.<WarehouseDataDisplayController>getController().initialize(this.warehouse, 1);//FIX this using choichbox and complete it
         scene = new Scene(root, 600, 600);
         stage = new Stage();
@@ -138,8 +140,8 @@ public class WarehousePageController implements Initializable {
 //                break;
         }
 //        loader1.<AddItemPopUpController>getController().initialize(warehouse);
-        Scene scene = new Scene(root, 600,600);
-        Stage stage = new Stage();
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
         
         stage.setTitle("SuperStore Management");
         stage.setScene(scene);
@@ -156,8 +158,8 @@ public class WarehousePageController implements Initializable {
         Parent root = (Pane)loader1.load();
         
         loader1.<AddController>getController().initialize(warehouse);
-        Scene scene = new Scene(root, 600,600);
-        Stage stage = new Stage();
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
         
         stage.setTitle("SuperStore Management");
         stage.setScene(scene);
@@ -174,8 +176,8 @@ public class WarehousePageController implements Initializable {
         Parent root = (Pane)loader1.load();
         
         loader1.<DeleteController>getController().initialize(warehouse);
-        Scene scene = new Scene(root, 600,600);
-        Stage stage = new Stage();
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
         
         stage.setTitle("SuperStore Management");
         stage.setScene(scene);
@@ -193,8 +195,8 @@ public class WarehousePageController implements Initializable {
         Parent root = (Pane)loader1.load();
         
         loader1.<ModifyController>getController().initialize(warehouse);
-        Scene scene = new Scene(root, 600,600);
-        Stage stage = new Stage();
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
         
         stage.setTitle("SuperStore Management");
         stage.setScene(scene);
@@ -209,8 +211,6 @@ public class WarehousePageController implements Initializable {
         if(index>=0){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
             Parent root = (Pane) loader.load();
-            Scene scene;
-            Stage stage;
             loader.<WarehouseDataDisplayController>getController().initialize(this.warehouses.getAllwarehouses().get(index), 1);//FIX this using choichbox and complete it
             scene = new Scene(root, 600, 600);
             stage = new Stage();
@@ -224,4 +224,12 @@ public class WarehousePageController implements Initializable {
             System.out.println("SELECT SOME OTHER WAREHOUSE FIRST");
         }
     }
+    
+    public void logout(ActionEvent event){
+        if(stage != null)
+            stage.close();
+        
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+    }
+    
 }

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -73,6 +74,8 @@ public class SuperUserPageController implements Initializable {
     Button storeCancelB;
     @FXML
     Button clearB;
+    @FXML
+    Button logoutB;
     @FXML
     TextArea consoleTA;
     @FXML
@@ -140,6 +143,9 @@ public class SuperUserPageController implements Initializable {
     ArrayList<Integer> test;
     static int count = 1;
 
+    Scene scene;
+    Stage stage;
+            
     /**
      * Initializes the controller class.
      */
@@ -353,8 +359,6 @@ public class SuperUserPageController implements Initializable {
             //TILL HERE
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
             Parent root = (Pane) loader.load();
-            Scene scene;
-            Stage stage;
             loader.<WarehouseDataDisplayController>getController().initialize(this.warehouses.getAllwarehouses().get(index), 1);//FIX this using choichbox and complete it
             scene = new Scene(root, 600, 600);
             stage = new Stage();
@@ -405,8 +409,6 @@ public class SuperUserPageController implements Initializable {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
             Parent root = (Pane) loader.load();
-            Scene scene;
-            Stage stage;
             loader.<WarehouseDataDisplayController>getController().initialize(this.stores.getAllstores().get(index), 2);//FIX this using choichbox and complete it
             scene = new Scene(root, 600, 600);
             stage = new Stage();
@@ -694,5 +696,12 @@ public class SuperUserPageController implements Initializable {
         this.linkS.setDisable(false);
 
     }
-
+    
+    public void logout(ActionEvent event){
+        if(stage != null)
+            stage.close();
+        
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+    }
+    
 }

@@ -21,7 +21,7 @@
       <Button fx:id="addB" layoutX="174.0" layoutY="190.0" mnemonicParsing="false" onAction="#goToAdd" prefHeight="25.0" prefWidth="250.0" text="Add" />
       <Button fx:id="deleteB" layoutX="174.0" layoutY="228.0" mnemonicParsing="false" onAction="#goToDelete" prefHeight="25.0" prefWidth="250.0" text="Delete" />
       <Button fx:id="modifyB" layoutX="175.0" layoutY="263.0" mnemonicParsing="false" onAction="#goToModify" prefHeight="25.0" prefWidth="250.0" text="Modify" />
-      <Button fx:id="logout" layoutX="465.0" layoutY="34.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" text="Logout" />
+      <Button fx:id="logoutB" layoutX="465.0" layoutY="34.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="123.0" text="Logout" />
       <Button fx:id="notification" layoutX="465.0" layoutY="87.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" text="Notifications" />
       <Button fx:id="deliver" layoutX="174.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Deliver Order" />
    </children>

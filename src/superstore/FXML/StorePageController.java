@@ -7,6 +7,7 @@ package superstore.FXML;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,6 +43,9 @@ public class StorePageController implements Initializable {
     Store store;
     AllWarehouses warehouses;
     
+    Scene scene;
+    Stage stage;
+    
     /**
      * Initializes the controller class.
      */
@@ -64,8 +68,8 @@ public class StorePageController implements Initializable {
         Parent root = (Pane)loader1.load();
         
         loader1.<AddController>getController().initialize(store);
-        Scene scene = new Scene(root, 600,600);
-        Stage stage = new Stage();
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
         
         stage.setTitle("SuperStore Management");
         stage.setScene(scene);
@@ -82,8 +86,8 @@ public class StorePageController implements Initializable {
         Parent root = (Pane)loader1.load();
         
         loader1.<DeleteController>getController().initialize(store);
-        Scene scene = new Scene(root, 600,600);
-        Stage stage = new Stage();
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
         
         stage.setTitle("SuperStore Management");
         stage.setScene(scene);
@@ -100,8 +104,8 @@ public class StorePageController implements Initializable {
         Parent root = (Pane)loader1.load();
         
         loader1.<ModifyController>getController().initialize(store);
-        Scene scene = new Scene(root, 600,600);
-        Stage stage = new Stage();
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
         
         stage.setTitle("SuperStore Management");
         stage.setScene(scene);
@@ -113,8 +117,7 @@ public class StorePageController implements Initializable {
     public void display() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
         Parent root = (Pane) loader.load();
-        Scene scene;
-        Stage stage;
+        
         loader.<WarehouseDataDisplayController>getController().initialize(this.store, 2);//FIX this using choichbox and complete it
         scene = new Scene(root, 600, 600);
         stage = new Stage();
@@ -126,8 +129,11 @@ public class StorePageController implements Initializable {
     }
     
     
-    public void logout(){
+    public void logout(ActionEvent event){
+        if(stage != null)
+            stage.close();
         
+        ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
     
 }
