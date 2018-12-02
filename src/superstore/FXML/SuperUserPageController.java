@@ -142,6 +142,8 @@ public class SuperUserPageController implements Initializable {
             
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -264,6 +266,9 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void addWarehouse() {
         this.addW.setDisable(true);
         this.warehouseAP.setVisible(true);
@@ -273,6 +278,9 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void addStore() {
         this.addS.setDisable(true);
         this.storeAP.setVisible(true);
@@ -281,6 +289,9 @@ public class SuperUserPageController implements Initializable {
         System.out.println("CREATING STORE");
     }
 
+    /**
+     *
+     */
     public void linkStoreToWarehouse() {
         this.linkAP.setVisible(true);
         this.linkS.setDisable(true);
@@ -302,6 +313,9 @@ public class SuperUserPageController implements Initializable {
         System.out.println("LINKING STORE TO WAREHOUSE");
     }
 
+    /**
+     *
+     */
     public void showWarehouseData() {
 
         this.checkWD.setDisable(true);
@@ -316,6 +330,10 @@ public class SuperUserPageController implements Initializable {
         System.out.println("DISPLAYING WAREHOUSE ___  DATA");
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void showWD() throws IOException {
 
         int index = this.warehouseCB.getSelectionModel().getSelectedIndex();
@@ -347,6 +365,10 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void showSD() throws IOException {
         int index = this.storeCB.getSelectionModel().getSelectedIndex();
 
@@ -377,6 +399,9 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void cancelWDB() {
         this.checkWD.setDisable(false);
         this.warehouseCB.setVisible(false);
@@ -385,6 +410,9 @@ public class SuperUserPageController implements Initializable {
         this.checkWDB.setVisible(false);
     }
 
+    /**
+     *
+     */
     public void cancelSDB() {
         this.checkSD.setDisable(false);
         this.storeCB.setVisible(false);
@@ -393,6 +421,9 @@ public class SuperUserPageController implements Initializable {
         this.checkSDB.setVisible(false);
     }
 
+    /**
+     *
+     */
     public void showStoreData() {
         this.checkSD.setDisable(true);
         this.storeCB.setVisible(true);
@@ -403,6 +434,9 @@ public class SuperUserPageController implements Initializable {
         System.out.println("DISPLAYING STORE ____ DATA");
     }
 
+    /**
+     *
+     */
     public void addWarehouseAdd() {
         int id = this.warehouses.getWarehouseID();
         String name = this.warehouseNameTF.getText().trim();
@@ -447,6 +481,9 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void addStoreAdd() {
         int id = this.stores.getStoreID();
         String name = this.storeNameTF.getText().trim();
@@ -485,6 +522,9 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void cancelWarehouseAdd() {
         this.warehouseAP.setVisible(false);
         this.addW.setDisable(false);
@@ -494,6 +534,9 @@ public class SuperUserPageController implements Initializable {
         this.consoleTA.setText("");
     }
 
+    /**
+     *
+     */
     public void cancelStoreAdd() {
         this.storeAP.setVisible(false);
         this.addS.setDisable(false);
@@ -503,10 +546,16 @@ public class SuperUserPageController implements Initializable {
         this.consoleTA.setText("");
     }
 
+    /**
+     *
+     */
     public void clear() {
         this.consoleTA.setText("");
     }
 
+    /**
+     *
+     */
     public void addWALink() {
         String id = this.loginTF.getText().trim();
         String pswd = this.passwordTF.getText().trim();
@@ -543,6 +592,9 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void cancelWALink() {
         this.warehouseAdminAP.setVisible(false);
         this.createWA.setDisable(false);
@@ -550,6 +602,9 @@ public class SuperUserPageController implements Initializable {
         this.passwordTF.setText("");
     }
     
+    /**
+     *
+     */
     public void addSALink() {
         String id = this.loginTF1.getText().trim();
         String pswd = this.passwordTF1.getText().trim();
@@ -587,6 +642,9 @@ public class SuperUserPageController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void cancelSALink() {
         this.storeAdminAP.setVisible(false);
         this.createSA.setDisable(false);
@@ -594,16 +652,25 @@ public class SuperUserPageController implements Initializable {
         this.passwordTF1.setText("");
     }
 
+    /**
+     *
+     */
     public void createWarehouseAdmin() {
         this.warehouseAdminAP.setVisible(true);
         this.createWA.setDisable(true);
     }
     
+    /**
+     *
+     */
     public void createStoreAdmin() {
         this.storeAdminAP.setVisible(true);
         this.createSA.setDisable(true);
     }
     
+    /**
+     *
+     */
     public void link(){
         
         int windex = this.wlCB.getSelectionModel().getSelectedIndex();
@@ -631,6 +698,9 @@ public class SuperUserPageController implements Initializable {
         }
     }
     
+    /**
+     *
+     */
     public void clAPB(){
         this.slCB.getItems().clear();
         this.wlCB.getItems().clear();
@@ -639,6 +709,10 @@ public class SuperUserPageController implements Initializable {
 
     }
     
+    /**
+     *
+     * @param event
+     */
     public void logout(ActionEvent event){
         if(stage != null)
             stage.close();

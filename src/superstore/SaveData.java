@@ -18,6 +18,11 @@ import java.util.Arrays;
  */
 public class SaveData {
     
+    /**
+     *
+     * @param database
+     * @return
+     */
     public static User_Login_Database readUserDatabase(User_Login_Database database){
         
         String path = "user.ap";
@@ -48,6 +53,11 @@ public class SaveData {
 
     }
     
+    /**
+     *
+     * @param database
+     * @return
+     */
     public static User_Login_Database writeUserDatabase(User_Login_Database database){
         
         String path = "user.ap";

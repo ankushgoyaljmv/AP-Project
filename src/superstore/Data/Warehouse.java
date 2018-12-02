@@ -23,6 +23,11 @@ public class Warehouse implements Functionalities,Serializable{
     private Warehouse_Admin admin;
     private int UID;
 
+    /**
+     *
+     * @param ID
+     * @param name
+     */
     public Warehouse(int ID, String name) {
         this.ID = ID;
         this.name = name;
@@ -32,34 +37,65 @@ public class Warehouse implements Functionalities,Serializable{
         this.UID = 1;
     }
 
+    /**
+     *
+     */
     public Warehouse() {
         System.out.println("LOL add code here");
     }
 
+    /**
+     *
+     * @param admin
+     */
     public void setAdmin(Warehouse_Admin admin) {
         this.admin = admin;
     }
 
+    /**
+     *
+     * @return
+     */
     public Warehouse_Admin getAdmin() {
         return admin;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getD() {
         return D;
     }
 
+    /**
+     *
+     * @param D
+     */
     public void setD(double D) {
         this.D = D;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getUID() {
         return UID;
     }
 
+    /**
+     *
+     */
     public void increamentUID() {
         this.UID++;
     }
     
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -78,51 +114,97 @@ public class Warehouse implements Functionalities,Serializable{
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getID() {
         return ID;
     }
 
+    /**
+     *
+     * @param ID
+     */
     public void setID(int ID) {
         this.ID = ID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Store> getStores() {
         return stores;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Item> getItems() {
         return items;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Category> getCategories() {
         return categories;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean sendACK(){
         //IMPLEMENTATION LEFT
 
         return true;
     }
 
+    /**
+     *
+     * @param name
+     */
     @Override
     public void addCategory(String name) {
        Category c = new Category(name);
         this.categories.add(c);
     }
 
+    /**
+     *
+     * @param name
+     * @param categoryName
+     */
     @Override
     public void addSub_Category(String name,Category categoryName) {
         categoryName.addSubCategory(name);
     }
 
+    /**
+     *
+     * @param categoryName
+     * @param subCategoryName
+     */
     @Override
     public void addItem(Category categoryName,Sub_Category subCategoryName) {
         Item temp = new Item();
@@ -131,32 +213,54 @@ public class Warehouse implements Functionalities,Serializable{
         System.out.println("ITEM ADDED TO > " + categoryName.getName() + " > " + subCategoryName.getName());
     }
     
+    /**
+     *
+     * @param categoryName
+     * @param subCategoryName
+     * @param temp
+     */
     public void addItem(Category categoryName,Sub_Category subCategoryName,Item temp) {
         this.items.add(temp);
         categoryName.getSubcategories().get( categoryName.getSubcategories().indexOf(subCategoryName) ).getItems().add(temp);
         System.out.println("ITEM ADDED TO > " + categoryName.getName() + " > " + subCategoryName.getName());
     }
 
+    /**
+     *
+     */
     @Override
     public void updateCategory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     */
     @Override
     public void updateSub_Category() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     */
     @Override
     public void updateItem() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     */
     @Override
     public void deleteCategory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    /**
+     *
+     * @param index
+     */
     public void deleteCategory(int index) {
         Sub_Category temp;
         Item itemTemp = new Item();
@@ -171,12 +275,20 @@ public class Warehouse implements Functionalities,Serializable{
         System.out.println("CATEGORY REMOVED");
     }
     
+    /**
+     *
+     */
     @Override
     public void deleteSub_Category() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    /**
+     *
+     * @param index
+     * @param index1
+     * @param deletesub
+     */
     public void deleteSub_Category(int index,int index1,boolean deletesub) {
         Item temp;
         Item itemTemp = new Item();
@@ -197,6 +309,11 @@ public class Warehouse implements Functionalities,Serializable{
         System.out.println("SUBCATEGORY REMOVED");
     }
     
+    /**
+     *
+     * @param index
+     * @param index1
+     */
     public void deleteSub_Category(int index,int index1) {
         Item temp;
         Item itemTemp = new Item();
@@ -216,6 +333,13 @@ public class Warehouse implements Functionalities,Serializable{
         System.out.println("SUBCATEGORY REMOVED");
     }
     
+    /**
+     *
+     * @param index
+     * @param index1
+     * @param index2
+     * @param index3
+     */
     @Override
     public void deleteItem(int index,int index1,int index2,int index3) {
         // cat | sub | items Index | cat>sub>items Index
@@ -227,6 +351,9 @@ public class Warehouse implements Functionalities,Serializable{
         }
     }
 
+    /**
+     *
+     */
     @Override
     public void display() {
         
@@ -246,16 +373,26 @@ public class Warehouse implements Functionalities,Serializable{
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Item findItem() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     */
     @Override
     public void sort() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     */
     @Override
     public void order() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

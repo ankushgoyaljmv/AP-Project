@@ -18,6 +18,12 @@ public class Warehouse_Admin implements Serializable{
     private Warehouse warehouse;
     private ArrayList<Item> itemlist;
 
+    /**
+     *
+     * @param loginid
+     * @param password
+     * @param warehouse
+     */
     public Warehouse_Admin(String loginid,String password,Warehouse warehouse) {
         this.loginid = loginid;
         this.warehouse = warehouse;
@@ -25,18 +31,34 @@ public class Warehouse_Admin implements Serializable{
         itemlist = new ArrayList<>();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLoginid() {
         return loginid;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
     
+    /**
+     *
+     * @return
+     */
     public Warehouse getWarehouse() {
         return warehouse;
     }
 
+    /**
+     *
+     * @param warehouses
+     */
     public void handleOrders(AllWarehouses warehouses) {
         
         ArrayList<Item> items = this.warehouse.getItems();
@@ -77,6 +99,10 @@ public class Warehouse_Admin implements Serializable{
         
     }
     
+    /**
+     *
+     * @param item
+     */
     public void notification(Item item){
         itemlist.add(item);
     }

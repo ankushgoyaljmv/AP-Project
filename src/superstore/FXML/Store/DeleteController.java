@@ -40,12 +40,18 @@ public class DeleteController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    /**
+     *
+     * @param store
+     */
     public void initialize(Store store) {
         this.store = store;
                 
@@ -94,6 +100,9 @@ public class DeleteController implements Initializable {
         
     }    
     
+    /**
+     *
+     */
     public void delete(){
         int index = this.catCB.getSelectionModel().getSelectedIndex();
         int index1 = this.subCB.getSelectionModel().getSelectedIndex();
@@ -123,6 +132,9 @@ public class DeleteController implements Initializable {
         reset();
     }
     
+    /**
+     *
+     */
     public void delItem(){
         System.out.println("deleteing items");
 
@@ -146,6 +158,9 @@ public class DeleteController implements Initializable {
         
     }
     
+    /**
+     *
+     */
     public void delSub(){
         System.out.println("delteing subcategories");
         
@@ -158,6 +173,9 @@ public class DeleteController implements Initializable {
         //CHECK THIS METHOD,might we wrong,TILL-151118-0158AM
     }
     
+    /**
+     *
+     */
     public void delCat(){
         System.out.println("delteing categories");
         
@@ -169,6 +187,9 @@ public class DeleteController implements Initializable {
         //CHECK THIS METHOD,might we wrong,TILL-201118-0549PM
     }
         
+    /**
+     *
+     */
     public void reset(){
         this.catCB.getItems().clear();
         this.subCB.getItems().clear();
@@ -181,6 +202,9 @@ public class DeleteController implements Initializable {
 
     }
     
+    /**
+     *
+     */
     public void logout(){
         System.out.println("LOGGING OUT , ADD CODE HERE");
     }

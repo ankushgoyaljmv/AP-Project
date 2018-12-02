@@ -26,6 +26,9 @@ public class User_Login_Database implements Serializable{
     private HashMap<String,Warehouse_Admin> warehouseDatabase ;
     private HashMap<String,Store_Admin> storeDatabase ;
 
+    /**
+     *
+     */
     public User_Login_Database() {
         warehouseDatabase = new HashMap<>();
         storeDatabase = new HashMap<>();
@@ -35,22 +38,42 @@ public class User_Login_Database implements Serializable{
     
     }
 
+    /**
+     *
+     * @return
+     */
     public AllWarehouses getWarehouses() {
         return warehouses;
     }
 
+    /**
+     *
+     * @return
+     */
     public AllStores getStores() {
         return stores;
     }
 
+    /**
+     *
+     * @return
+     */
     public Superuser getSuperuser() {
         return superuser;
     }    
 
+    /**
+     *
+     * @return
+     */
     public HashMap<String, Warehouse_Admin> getWarehouseDatabase() {
         return warehouseDatabase;
     }
 
+    /**
+     *
+     * @return
+     */
     public HashMap<String, Store_Admin> getStoreDatabase() {
         return storeDatabase;
     }

@@ -40,12 +40,19 @@ public class WarehouseDataDisplayController implements Initializable {
         
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }  
     
+    /**
+     *
+     * @param warehouse
+     * @param type
+     */
     public void initialize(Warehouse warehouse,int type) {
         this.warehouse = warehouse;
         this.type = type;
@@ -55,6 +62,11 @@ public class WarehouseDataDisplayController implements Initializable {
         
     }  
     
+    /**
+     *
+     * @param store
+     * @param type
+     */
     public void initialize(Store store,int type) {
         this.store = store;
         this.type = type;
@@ -64,6 +76,9 @@ public class WarehouseDataDisplayController implements Initializable {
         priceColumn.sortTypeProperty().setValue(TableColumn.SortType.ASCENDING);
     }  
     
+    /**
+     *
+     */
     public void setup(){
         
         nameColumn.setMinWidth(200);
@@ -94,6 +109,10 @@ public class WarehouseDataDisplayController implements Initializable {
         
     } 
     
+    /**
+     *
+     * @return
+     */
     public ObservableList<Item> getItems(){
         ObservableList<Item>  items = FXCollections.observableArrayList();
         for (int i = 0; i < warehouse.getItems().size(); i++) {
@@ -104,6 +123,10 @@ public class WarehouseDataDisplayController implements Initializable {
         return items;
     }
     
+    /**
+     *
+     * @return
+     */
     public ObservableList<Item> getItems2(){
         ObservableList<Item>  items = FXCollections.observableArrayList();
         for (int i = 0; i < store.getItems().size(); i++) {
@@ -113,6 +136,9 @@ public class WarehouseDataDisplayController implements Initializable {
         return items;
     }
     
+    /**
+     *
+     */
     public void sort(){
         
         System.out.println("WTH - " + priceColumn.getSortType().name());

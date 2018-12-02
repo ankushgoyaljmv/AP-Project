@@ -61,12 +61,18 @@ public class ModifyController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    /**
+     *
+     * @param store
+     */
     public void initialize(Store store) {
         
         this.store = store;
@@ -284,6 +290,9 @@ public class ModifyController implements Initializable {
         
     }    
     
+    /**
+     *
+     */
     public void add1(){
         System.out.println("type--> "+ type);
         String s = "";
@@ -378,6 +387,9 @@ public class ModifyController implements Initializable {
         
     }
     
+    /**
+     *
+     */
     public void reset(){
         this.ap2.setVisible(false);
         this.catCB.setVisible(false);
@@ -388,7 +400,9 @@ public class ModifyController implements Initializable {
         
     }
     
-    
+    /**
+     *
+     */
     public void clickOnAdd(){
         System.out.println("inside click on add");
         

@@ -56,12 +56,18 @@ public class AddController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    /**
+     *
+     * @param store
+     */
     public void initialize(Store store) {
         
         this.store = store;
@@ -141,6 +147,9 @@ public class AddController implements Initializable {
         
     }    
     
+    /**
+     *
+     */
     public void add1(){
         System.out.println("type--> "+ type);
         String s = "";
@@ -179,6 +188,9 @@ public class AddController implements Initializable {
         
     }
     
+    /**
+     *
+     */
     public void reset(){
         this.ap2.setVisible(false);
         this.catCB.setVisible(false);
@@ -187,6 +199,9 @@ public class AddController implements Initializable {
         this.TF.setPromptText("");
     }
     
+    /**
+     *
+     */
     public void check(){
         System.out.println("INSIDE CHECK");
         System.out.println("type:- " + type);
@@ -211,6 +226,9 @@ public class AddController implements Initializable {
         
     }
     
+    /**
+     *
+     */
     public void cat(){
         
         String name = TF.getText().trim();
@@ -228,6 +246,9 @@ public class AddController implements Initializable {
         }
     }
     
+    /**
+     *
+     */
     public void sub(){
         
         String name = TF.getText().trim();
@@ -246,6 +267,9 @@ public class AddController implements Initializable {
         
     }
     
+    /**
+     *
+     */
     public void item(){
         
         String name = TF.getText().trim();
@@ -267,6 +291,9 @@ public class AddController implements Initializable {
         
     }
     
+    /**
+     *
+     */
     public void clickOnAdd(){
         System.out.println("inside click on add");
         

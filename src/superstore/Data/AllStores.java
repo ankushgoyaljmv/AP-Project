@@ -16,14 +16,25 @@ public class AllStores implements Serializable{
     private ArrayList<Store> allstores = new ArrayList<>();
     private int storeID = 1;
     
+    /**
+     *
+     * @return
+     */
     public ArrayList<Store> getAllstores() {
         return allstores;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getStoreID() {
         return storeID;
     }
     
+    /**
+     *
+     */
     public void incrementStoreID(){
         this.storeID++;
     }

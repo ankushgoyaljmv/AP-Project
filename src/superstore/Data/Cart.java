@@ -16,14 +16,25 @@ public class Cart implements Serializable{
     private ArrayList<Item> items;
     private double cost;
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Item> getItems() {
         return items;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getCost() {
         return cost;
     }
 
+    /**
+     *
+     */
     public void updateQuantity(){
         
     }

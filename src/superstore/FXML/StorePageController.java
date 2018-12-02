@@ -48,17 +48,28 @@ public class StorePageController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
+    /**
+     *
+     * @param store
+     * @param warehouses
+     */
     public void initialize(Store store,AllWarehouses warehouses) {
         this.store = store;
         this.warehouses = warehouses;
     }     
     
+    /**
+     *
+     * @throws IOException
+     */
     public void add() throws IOException{
         System.out.println("inside gotoadd");
         String s="Store/add.fxml";
@@ -77,6 +88,10 @@ public class StorePageController implements Initializable {
         stage.show();
     }
     
+    /**
+     *
+     * @throws IOException
+     */
     public void delete() throws IOException{
         System.out.println("inside gotoadd");
         String s="Store/delete.fxml";
@@ -95,6 +110,10 @@ public class StorePageController implements Initializable {
         stage.show();
     }
     
+    /**
+     *
+     * @throws IOException
+     */
     public void modify() throws IOException{
         System.out.println("inside gotomodify");
         String s="Store/modify.fxml";
@@ -114,6 +133,10 @@ public class StorePageController implements Initializable {
 
     }
     
+    /**
+     *
+     * @throws IOException
+     */
     public void display() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
         Parent root = (Pane) loader.load();
@@ -128,7 +151,10 @@ public class StorePageController implements Initializable {
         stage.show();
     }
     
-    
+    /**
+     *
+     * @param event
+     */
     public void logout(ActionEvent event){
         if(stage != null)
             stage.close();

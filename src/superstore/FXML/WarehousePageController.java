@@ -58,12 +58,19 @@ public class WarehousePageController implements Initializable {
             
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    /**
+     *
+     * @param warehouse
+     * @param warehouses
+     */
     public void initialize(Warehouse warehouse,AllWarehouses warehouses) {
         this.warehouse = warehouse;
         this.warehouses = warehouses;
@@ -78,12 +85,19 @@ public class WarehousePageController implements Initializable {
         
     }    
        
+    /**
+     *
+     */
     public void display(){
         System.out.println("\nDISPLAYING");
         this.warehouse.display();
         System.out.println("END OF DISPLAY\n\n");
     }
     
+    /**
+     *
+     * @throws IOException
+     */
     public void guiDisplay() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehouseDataDisplay.fxml"));
         Parent root = (Pane) loader.load();
@@ -97,6 +111,10 @@ public class WarehousePageController implements Initializable {
         stage.show();
     }
  
+    /**
+     *
+     * @throws IOException
+     */
     public void goToAdd() throws IOException{
         System.out.println("inside gotoadd");
         String s="Warehouse/add.fxml";
@@ -115,6 +133,10 @@ public class WarehousePageController implements Initializable {
         stage.show();
     }
     
+    /**
+     *
+     * @throws IOException
+     */
     public void goToDelete() throws IOException{
         System.out.println("inside gotoadd");
         String s="Warehouse/delete.fxml";
@@ -134,6 +156,10 @@ public class WarehousePageController implements Initializable {
 
     }
     
+    /**
+     *
+     * @throws IOException
+     */
     public void goToModify() throws IOException{
         System.out.println("inside gotomodify");
         String s="Warehouse/modify.fxml";
@@ -153,6 +179,10 @@ public class WarehousePageController implements Initializable {
 
     }
     
+    /**
+     *
+     * @throws IOException
+     */
     public void showotherWD() throws IOException{
         
         int index = this.otherwarehouse.getSelectionModel().getSelectedIndex();
@@ -173,6 +203,10 @@ public class WarehousePageController implements Initializable {
         }
     }
     
+    /**
+     *
+     * @param event
+     */
     public void logout(ActionEvent event){
         if(stage != null)
             stage.close();
@@ -180,6 +214,9 @@ public class WarehousePageController implements Initializable {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
     
+    /**
+     *
+     */
     public void del(){
         this.warehouse.getAdmin().handleOrders(this.warehouses);
     }

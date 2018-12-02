@@ -50,12 +50,21 @@ public class StartupController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    /**
+     *
+     * @param loginDatabase
+     * @param warehouses
+     * @param stores
+     * @param superuser
+     */
     public void initialize(User_Login_Database loginDatabase, AllWarehouses warehouses, AllStores stores, Superuser superuser) {
         this.loginDatabase = loginDatabase;
         this.warehouses = warehouses;
@@ -64,6 +73,9 @@ public class StartupController implements Initializable {
         System.out.println("STARTUP INTIZLIZED");
     }    
     
+    /**
+     *
+     */
     public void superUserOnPress(){
         System.out.println("SUPERUSER");
         try {
@@ -73,6 +85,9 @@ public class StartupController implements Initializable {
         }
     }
     
+    /**
+     *
+     */
     public void warehouseAdminOnPress(){
         System.out.println("WAREHOUSEADMIN");
         try {
@@ -82,6 +97,9 @@ public class StartupController implements Initializable {
         }
     }
     
+    /**
+     *
+     */
     public void storeAdminOnPress(){
         System.out.println("STOREADMIN");
         try {
@@ -91,6 +109,9 @@ public class StartupController implements Initializable {
         }
     }
     
+    /**
+     *
+     */
     public void endUserOnPress(){
         System.out.println("ENDUSER");
         try {
@@ -114,6 +135,9 @@ public class StartupController implements Initializable {
 
     }
     
+    /**
+     *
+     */
     public void exit(){
         if(stage != null)
             stage.close();

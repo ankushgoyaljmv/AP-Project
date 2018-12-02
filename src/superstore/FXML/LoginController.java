@@ -58,6 +58,9 @@ public class LoginController implements Initializable {
     @FXML
     private Label isFine;
 
+    /**
+     *
+     */
     public int type;//1-superuser 2-warehouseadmin 3-storeadmin 4-enduser
     private User_Login_Database loginDatabase ;
     private AllWarehouses warehouses ;
@@ -69,12 +72,22 @@ public class LoginController implements Initializable {
         
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
+    /**
+     *
+     * @param loginDatabase
+     * @param warehouses
+     * @param stores
+     * @param superuser
+     * @param type
+     */
     public void initialize(User_Login_Database loginDatabase, AllWarehouses warehouses, AllStores stores, Superuser superuser, int type) {
         this.loginDatabase = loginDatabase;
         this.warehouses = warehouses;
@@ -126,6 +139,9 @@ public class LoginController implements Initializable {
 
     }
 
+    /**
+     *
+     */
     public void reset() {
         System.out.println("RESETINg " + type);
         userName.setText("");
@@ -133,6 +149,10 @@ public class LoginController implements Initializable {
         isFine.setText("");
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean check() {
         boolean isOk = false;
         String str = password.getText();
@@ -174,6 +194,9 @@ public class LoginController implements Initializable {
         return isOk;
     }
     
+    /**
+     *
+     */
     public void validateLogin() {
         
         boolean isOk = check();
@@ -246,6 +269,10 @@ public class LoginController implements Initializable {
         System.out.println(output);
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void goToSuperuser() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SuperUserPage.fxml"));
         Parent root = (Pane)loader.load();
@@ -259,6 +286,11 @@ public class LoginController implements Initializable {
         stage.show();
     }
     
+    /**
+     *
+     * @param warehouse
+     * @throws IOException
+     */
     public void goToWarehouse(Warehouse warehouse) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WarehousePage.fxml"));
         Parent root = (Pane)loader.load();
@@ -274,6 +306,11 @@ public class LoginController implements Initializable {
         stage.show();
     }
     
+    /**
+     *
+     * @param store
+     * @throws IOException
+     */
     public void goToStore(Store store) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StorePage.fxml"));
         Parent root = (Pane)loader.load();
@@ -289,7 +326,10 @@ public class LoginController implements Initializable {
         stage.show();
     }
  
-    
+    /**
+     *
+     * @param event
+     */
     public void goBack(ActionEvent event){
         
         if(stage != null)
@@ -299,6 +339,10 @@ public class LoginController implements Initializable {
         //CHECK THIS IF DOESNT WORK
     }
     
+    /**
+     *
+     * @param ke
+     */
     public void enterpress(KeyEvent ke){
         if (ke.getCode().equals(KeyCode.ENTER))
             this.validateLogin();

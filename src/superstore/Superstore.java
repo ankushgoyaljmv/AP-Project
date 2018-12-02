@@ -44,6 +44,10 @@ public class Superstore extends Application {
         loginDatabase = SaveData.writeUserDatabase(loginDatabase);
     }
     
+    /**
+     *
+     * @return
+     */
     public User_Login_Database getLoginDatabase() {
         return loginDatabase;
     }

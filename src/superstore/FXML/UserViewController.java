@@ -40,12 +40,18 @@ public class UserViewController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 
+    /**
+     *
+     * @param stores
+     */
     public void initialize(AllStores stores) {
         this.stores = stores;
 
@@ -57,6 +63,10 @@ public class UserViewController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param event
+     */
     public void logout(ActionEvent event) {
         if (stage != null) {
             stage.close();
@@ -65,6 +75,10 @@ public class UserViewController implements Initializable {
         ((Stage) (((Button) event.getSource()).getScene().getWindow())).close();
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void clickOnItems() throws IOException {
 
         int index = this.storeCB.getSelectionModel().getSelectedIndex();
@@ -75,6 +89,11 @@ public class UserViewController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param i
+     * @throws IOException
+     */
     public void goNext(int i) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserOrder.fxml"));
         Parent root = (Pane) loader.load();
