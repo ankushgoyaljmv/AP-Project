@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.Warehouse.ModifyController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.Store.ModifyController">
    <children>
       <Button fx:id="addcommon" layoutX="431.0" layoutY="305.0" mnemonicParsing="false" onAction="#add1" prefHeight="25.0" prefWidth="80.0" text="Modify" />
       <AnchorPane fx:id="ap2" layoutX="11.0" layoutY="346.0" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: blue;">

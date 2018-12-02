@@ -26,6 +26,7 @@ import superstore.Data.AllWarehouses;
 import superstore.Data.Category;
 import superstore.Data.Item;
 import superstore.Data.Store;
+import superstore.Data.Store_Admin;
 import superstore.Data.Superuser;
 import superstore.Data.Warehouse;
 import superstore.Data.Warehouse_Admin;
@@ -81,6 +82,8 @@ public class SuperUserPageController implements Initializable {
     @FXML
     Button createWA;
     @FXML
+    Button createSA;
+    @FXML
     Button checkWD;
     @FXML
     Button checkSD;
@@ -95,15 +98,27 @@ public class SuperUserPageController implements Initializable {
     @FXML
     Button addWAB;
     @FXML
+    Button addSAB;
+    @FXML
     Button cancelWAB;
+    @FXML
+    Button cancelSAB;
     @FXML
     TextField loginTF;
     @FXML
     TextField passwordTF;
     @FXML
+    TextField loginTF1;
+    @FXML
+    TextField passwordTF1;
+    @FXML
     ChoiceBox warehouseLinkCB;
     @FXML
+    ChoiceBox storeLinkCB;
+    @FXML
     AnchorPane warehouseAdminAP;
+    @FXML
+    AnchorPane storeAdminAP;
 
     private Superuser superuser;
     private AllWarehouses warehouses;
@@ -123,7 +138,6 @@ public class SuperUserPageController implements Initializable {
 
     void initialize(User_Login_Database loginDatabase, AllWarehouses warehouses, AllStores stores, Superuser superuser) {
         System.out.println("LOL in" + getClass().getName());
-        test = loginDatabase.test;
         this.loginDatabase = loginDatabase;
         this.superuser = superuser;
         this.warehouses = warehouses;
@@ -140,6 +154,7 @@ public class SuperUserPageController implements Initializable {
         this.checkCancelWDB.setVisible(false);
         this.checkCancelSDB.setVisible(false);
         this.warehouseAdminAP.setVisible(false);
+        this.storeAdminAP.setVisible(false);
 
         refresh();
 
@@ -181,6 +196,19 @@ public class SuperUserPageController implements Initializable {
                 }
             }
         });
+        
+        this.storeLinkCB.getSelectionModel().selectedItemProperty().addListener((e, oldvalue, newvalue) -> {
+
+            System.out.println(newvalue);
+            int index = this.storeLinkCB.getSelectionModel().getSelectedIndex();
+            if (this.storeLinkCB.getSelectionModel().getSelectedIndex() >= 0) {
+                if (index >= 0) {
+                    String s = "Selected Store :- \nName :- " + this.stores.getAllstores().get(index).getName() + "\nID :- "
+                            + this.stores.getAllstores().get(index).getID();
+                    this.consoleTA.setText(s);
+                }
+            }
+        });
 
     }
 
@@ -208,6 +236,16 @@ public class SuperUserPageController implements Initializable {
             System.out.println(temp3);
             if (this.warehouses.getAllwarehouses().get(i).getAdmin() == null) {
                 this.warehouseLinkCB.getItems().add(temp3);
+            }
+        }
+        
+        this.storeLinkCB.getItems().clear();
+        String temp4;
+        for (int i = 0; i < stores.getAllstores().size(); i++) {
+            temp4 = stores.getAllstores().get(i).getName();
+            System.out.println(temp4);
+            if (this.stores.getAllstores().get(i).getAdmin() == null) {
+                this.storeLinkCB.getItems().add(temp4);
             }
         }
 
@@ -534,10 +572,58 @@ public class SuperUserPageController implements Initializable {
         this.loginTF.setText("");
         this.passwordTF.setText("");
     }
+    
+    public void addSALink() {
+        String id = this.loginTF1.getText().trim();
+        String pswd = this.passwordTF1.getText().trim();
+
+        int index = this.storeLinkCB.getSelectionModel().getSelectedIndex();
+
+        if (!id.isEmpty() && !pswd.isEmpty() && pswd.length() >= 8) {
+            if (index >= 0) {
+                String s = this.storeLinkCB.getSelectionModel().getSelectedItem().toString();//fix this, so that we can get selected itme name and find warehouse
+                System.out.println(s);
+                this.consoleTA.setText(s);
+                Store w = new Store(999999, s);
+                int index2 = this.stores.getAllstores().indexOf(w);
+                Store_Admin temp = new Store_Admin(id, pswd, this.stores.getAllstores().get(index2));
+                System.out.println("inside 2 if conditions");
+                this.consoleTA.setText("inside 2 if conditions");
+                this.loginDatabase.getStoreDatabase().put(id, temp);//changed here
+                System.out.println("PUTTED INTO STORE DATABASE");
+                //TILL YESTERDAY NIGHT
+
+                System.out.println("TEST");
+
+                this.storeAdminAP.setVisible(false);
+                this.createSA.setDisable(false);
+                this.loginTF1.setText("");
+                this.passwordTF1.setText("");
+
+            } else {
+                this.consoleTA.setText("SELECT A WAREHOUSE");
+            }
+        } else {
+            this.consoleTA.setText("Enter All The Details");
+        }
+
+    }
+
+    public void cancelSALink() {
+        this.storeAdminAP.setVisible(false);
+        this.createSA.setDisable(false);
+        this.loginTF1.setText("");
+        this.passwordTF1.setText("");
+    }
 
     public void createWarehouseAdmin() {
         this.warehouseAdminAP.setVisible(true);
         this.createWA.setDisable(true);
+    }
+    
+    public void createStoreAdmin() {
+        this.storeAdminAP.setVisible(true);
+        this.createSA.setDisable(true);
     }
 
 }

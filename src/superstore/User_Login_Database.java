@@ -18,7 +18,6 @@ import superstore.Data.Warehouse_Admin;
  * @author PD
  */
 public class User_Login_Database implements Serializable{
-    public ArrayList<Integer> test = new ArrayList<>();
     
     private AllWarehouses warehouses ;//= new AllWarehouses();
     private AllStores stores ;//= new AllStores();

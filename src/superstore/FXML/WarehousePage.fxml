@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -8,14 +9,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.WarehousePageController">
    <children>
-      <Button fx:id="itemButton" layoutX="288.0" layoutY="419.0" mnemonicParsing="false" onAction="#guiDisplay" prefHeight="40.0" prefWidth="100.0" text="Display Data" />
-      <Label alignment="CENTER" layoutX="212.0" layoutY="34.0" prefHeight="40.0" prefWidth="177.0" text="Welcome Warehouse Admin" />
-      <ChoiceBox fx:id="otherwarehouse" layoutX="62.0" layoutY="517.0" prefWidth="150.0" />
+      <Button fx:id="itemButton" layoutX="175.0" layoutY="302.0" mnemonicParsing="false" onAction="#guiDisplay" prefHeight="13.0" prefWidth="250.0" text="Display Present Stock" />
+      <Label alignment="CENTER" layoutX="165.0" layoutY="37.0" prefHeight="74.0" prefWidth="269.0" text="Welcome Warehouse Admin">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <ChoiceBox fx:id="otherwarehouse" layoutX="117.0" layoutY="386.0" prefHeight="25.0" prefWidth="207.0" />
       <Label fx:id="warehouseNameLabel" alignment="CENTER" layoutX="200.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" />
-      <Button fx:id="otherwarehousedata" layoutX="252.0" layoutY="510.0" mnemonicParsing="false" onAction="#showotherWD" prefHeight="40.0" prefWidth="100.0" text="Show Details" />
-      <Button fx:id="itemButton2" layoutX="314.0" layoutY="347.0" mnemonicParsing="false" onAction="#display" prefHeight="40.0" prefWidth="274.0" text="Display" />
-      <Button fx:id="addB" layoutX="174.0" layoutY="143.0" mnemonicParsing="false" onAction="#goToAdd" prefHeight="25.0" prefWidth="250.0" text="Add" />
-      <Button fx:id="deleteB" layoutX="174.0" layoutY="181.0" mnemonicParsing="false" onAction="#goToDelete" prefHeight="25.0" prefWidth="250.0" text="Delete" />
-      <Button fx:id="modifyB" layoutX="175.0" layoutY="216.0" mnemonicParsing="false" onAction="#goToModify" prefHeight="25.0" prefWidth="250.0" text="Modify" />
+      <Button fx:id="otherwarehousedata" layoutX="342.0" layoutY="386.0" mnemonicParsing="false" onAction="#showotherWD" prefHeight="25.0" prefWidth="123.0" text="Show Details" />
+      <Button fx:id="itemButton2" layoutX="438.0" layoutY="542.0" mnemonicParsing="false" onAction="#display" prefHeight="40.0" prefWidth="150.0" text="Display DEBUG" />
+      <Button fx:id="addB" layoutX="174.0" layoutY="190.0" mnemonicParsing="false" onAction="#goToAdd" prefHeight="25.0" prefWidth="250.0" text="Add" />
+      <Button fx:id="deleteB" layoutX="174.0" layoutY="228.0" mnemonicParsing="false" onAction="#goToDelete" prefHeight="25.0" prefWidth="250.0" text="Delete" />
+      <Button fx:id="modifyB" layoutX="175.0" layoutY="263.0" mnemonicParsing="false" onAction="#goToModify" prefHeight="25.0" prefWidth="250.0" text="Modify" />
+      <Button fx:id="logout" layoutX="465.0" layoutY="34.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" text="Logout" />
+      <Button fx:id="notification" layoutX="465.0" layoutY="87.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" text="Notifications" />
+      <Button fx:id="deliver" layoutX="174.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="250.0" text="Deliver Order" />
    </children>
 </AnchorPane>

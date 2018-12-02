@@ -48,7 +48,6 @@ public class StartupController implements Initializable {
     private AllStores stores ;
     private Superuser superuser ;
     
-    static int count1 = 200;
     /**
      * Initializes the controller class.
      */
@@ -95,15 +94,24 @@ public class StartupController implements Initializable {
     public void endUserOnPress(){
         System.out.println("ENDUSER");
 //        try {
+//            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("EndUser.fxml"));
+//            Parent root = (Pane) loader1.load();
+////        Parent root = FXMLLoader.load(Superstore.class.getResource("FXML/Login.fxml"));
+//            loader1.<EndUserController>getController().initialize();
+//            scene = new Scene(root, 600, 600);
+//            stage = new Stage();
+//
+//            stage.setTitle("SuperStore Management");
+//            stage.setScene(scene);
+//            stage.setResizable(false);
+//            stage.show();
 //            
-//            goToLoginPage(4);
 //        } catch (IOException ex) {
 //            System.out.println("WTH");
 //            Logger.getLogger(StartupController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         
-        loginDatabase.test.add(count1++);
-        System.out.println("In startup:- " + loginDatabase.test );
+        System.out.println("In startup:- complete this thing first" );
 
     }
     

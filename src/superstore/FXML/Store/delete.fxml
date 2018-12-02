@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="superstore.FXML.Store.DeleteController">
+   <children>
+      <ChoiceBox fx:id="itemCB" layoutX="218.0" layoutY="300.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="catCB" layoutX="218.0" layoutY="199.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="subCB" layoutX="218.0" layoutY="251.0" prefWidth="150.0" />
+      <Label layoutX="180.0" layoutY="66.0" text="Delete Category/Sub-Category/Item">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="deleteB" layoutX="244.0" layoutY="378.0" mnemonicParsing="false" onAction="#delete" prefHeight="49.0" prefWidth="98.0" text="Delete" />
+      <Button fx:id="logoutB" layoutX="404.0" layoutY="530.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="161.0" text="Logout" />
+      <Button fx:id="clearB" layoutX="442.0" layoutY="378.0" mnemonicParsing="false" onAction="#reset" prefHeight="49.0" prefWidth="86.0" text="Clear" />
+   </children>
+</AnchorPane>

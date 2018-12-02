@@ -2,7 +2,7 @@
  * Name    : - PORVIL
  * Roll No : - 2017304
  */
-package superstore.FXML.Warehouse;
+package superstore.FXML.Store;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -16,9 +16,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.AnchorPane;
 import superstore.Data.Category;
 import superstore.Data.Item;
-import superstore.Data.Store;
 import superstore.Data.Sub_Category;
-import superstore.Data.Warehouse;
+import superstore.Data.Store;
 
 /**
  * FXML Controller class
@@ -50,7 +49,7 @@ public class AddController implements Initializable {
     @FXML
     AnchorPane ap2;
     
-    private Warehouse warehouse;
+    private Store store;
     private int type;//0-cat , 1-sub , 2-sub
     
     /**
@@ -61,9 +60,9 @@ public class AddController implements Initializable {
         // TODO
     }    
     
-    public void initialize(Warehouse warehouse) {
+    public void initialize(Store store) {
         
-        this.warehouse = warehouse;
+        this.store = store;
         
         //HIDE by default
         reset();
@@ -75,19 +74,19 @@ public class AddController implements Initializable {
         this.subCB.setTooltip(new Tooltip("Select Sub-Category"));
         
         //CHEAT
-//        this.warehouse.addCategory("test@category1");
-//        this.warehouse.addCategory("test@category2");
-//        this.warehouse.addCategory("test@category3");
+//        this.store.addCategory("test@category1");
+//        this.store.addCategory("test@category2");
+//        this.store.addCategory("test@category3");
 //           
-//        Category c = this.warehouse.getCategories().get(0);
-//        this.warehouse.addSub_Category("test@subcategory1",c);
-//        this.warehouse.addSub_Category("test@subcategory2",c);
-//        this.warehouse.addSub_Category("test@subcategory3",c);
+//        Category c = this.store.getCategories().get(0);
+//        this.store.addSub_Category("test@subcategory1",c);
+//        this.store.addSub_Category("test@subcategory2",c);
+//        this.store.addSub_Category("test@subcategory3",c);
 //        
-//        this.warehouse.addItem(this.warehouse.getCategories().get(0) , this.warehouse.getCategories().get(0).getSubcategories().get(0));
-//        this.warehouse.getItems().get(0).setName("Test@Item1");
-//        this.warehouse.addItem(this.warehouse.getCategories().get(0) , this.warehouse.getCategories().get(0).getSubcategories().get(0));
-//        this.warehouse.getItems().get(1).setName("Test@Item2");
+//        this.store.addItem(this.store.getCategories().get(0) , this.store.getCategories().get(0).getSubcategories().get(0));
+//        this.store.getItems().get(0).setName("Test@Item1");
+//        this.store.addItem(this.store.getCategories().get(0) , this.store.getCategories().get(0).getSubcategories().get(0));
+//        this.store.getItems().get(1).setName("Test@Item2");
         //
         
         
@@ -111,8 +110,8 @@ public class AddController implements Initializable {
                         //add sub
                         //populate categories
                         this.catCB.getItems().clear();
-                        for (int i = 0; i < this.warehouse.getCategories().size(); i++) {
-                            this.catCB.getItems().add(this.warehouse.getCategories().get(i).getName());
+                        for (int i = 0; i < this.store.getCategories().size(); i++) {
+                            this.catCB.getItems().add(this.store.getCategories().get(i).getName());
                         }
                         
                         this.TF.setPromptText("Enter Sub-Category Name");
@@ -122,8 +121,8 @@ public class AddController implements Initializable {
                         //add item
                         //populate categories
                         this.catCB.getItems().clear();
-                        for (int i = 0; i < this.warehouse.getCategories().size(); i++) {
-                            this.catCB.getItems().add(this.warehouse.getCategories().get(i).getName());
+                        for (int i = 0; i < this.store.getCategories().size(); i++) {
+                            this.catCB.getItems().add(this.store.getCategories().get(i).getName());
                         }
                                                 
                         this.TF.setPromptText("Enter Item Name");
@@ -147,8 +146,8 @@ public class AddController implements Initializable {
             
             if(index >= 0){
                 this.subCB.getItems().clear();
-                for (int i = 0; i < this.warehouse.getCategories().get(index).getSubcategories().size(); i++) {
-                    this.subCB.getItems().add(this.warehouse.getCategories().get(index).getSubcategories().get(i).getName());
+                for (int i = 0; i < this.store.getCategories().get(index).getSubcategories().size(); i++) {
+                    this.subCB.getItems().add(this.store.getCategories().get(index).getSubcategories().get(i).getName());
                 }
             }
             
@@ -165,7 +164,7 @@ public class AddController implements Initializable {
             case 0:
                 s = this.TF.getText().trim();
                 c = new Category(s);
-                this.warehouse.getCategories().add(c);
+                this.store.getCategories().add(c);
                 System.out.println("category added -> " + s);
 
                 this.addcommon.setDisable(true);
@@ -177,8 +176,8 @@ public class AddController implements Initializable {
             case 1:
                 int index = this.catCB.getSelectionModel().getSelectedIndex();
                 s = this.TF.getText().trim();
-                c = this.warehouse.getCategories().get(index);
-                this.warehouse.addSub_Category(s, c);
+                c = this.store.getCategories().get(index);
+                this.store.addSub_Category(s, c);
                 System.out.println("subcategory added -> " + s + " at --> " + c.getName());
 
                 this.addcommon.setDisable(true);
@@ -301,12 +300,12 @@ public class AddController implements Initializable {
         int index1 = this.subCB.getSelectionModel().getSelectedIndex();
         
         if(index>=0 && index1>=0){
-            String category = this.warehouse.getCategories().get(index).getName();
-            String subcategory = this.warehouse.getCategories().get(index).getSubcategories().get(index1).getName();
+            String category = this.store.getCategories().get(index).getName();
+            String subcategory = this.store.getCategories().get(index).getSubcategories().get(index1).getName();
 
             itemTemp.setPath(category + ">" + subcategory);
-            itemTemp.setEOQ(this.warehouse.getD());
-            this.warehouse.addItem(this.warehouse.getCategories().get(index), this.warehouse.getCategories().get(index).getSubcategories().get(index1),itemTemp);
+            itemTemp.setEOQ(this.store.getD());
+            this.store.addItem(this.store.getCategories().get(index), this.store.getCategories().get(index).getSubcategories().get(index1),itemTemp);
             System.out.println(itemTemp);
             System.out.println("ITEM ADDED");
             
@@ -334,7 +333,7 @@ public class AddController implements Initializable {
         
         System.out.println("index:- " + index1 + "       INSIDE checkIfItemExists Method.");
         if(index1 >=0 && index >=0){
-            items = this.warehouse.getCategories().get(index).getSubcategories().get(index1).getItems();
+            items = this.store.getCategories().get(index).getSubcategories().get(index1).getItems();
         }
         
         if(items == null){
@@ -354,7 +353,7 @@ public class AddController implements Initializable {
         
         ArrayList<Category> cat = null;
 
-        cat = this.warehouse.getCategories();
+        cat = this.store.getCategories();
         
         
         if(cat == null){
@@ -377,7 +376,7 @@ public class AddController implements Initializable {
         int index = this.catCB.getSelectionModel().getSelectedIndex();
         
         if(index >=0){
-            sub = this.warehouse.getCategories().get(index).getSubcategories();
+            sub = this.store.getCategories().get(index).getSubcategories();
         }
         
         if(sub == null){
@@ -391,6 +390,5 @@ public class AddController implements Initializable {
         }
         return false;        
     }
-
     
 }

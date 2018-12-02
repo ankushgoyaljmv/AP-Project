@@ -29,9 +29,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import superstore.Data.AllStores;
 import superstore.Data.AllWarehouses;
+import superstore.Data.Store;
 import superstore.Data.Superuser;
 import superstore.Data.Warehouse;
-import superstore.Data.Warehouse_Admin;
 import superstore.User_Login_Database;
 
 /**
@@ -220,8 +220,16 @@ public class LoginController implements Initializable {
                     break;
                 case 3:
                     if(loginDatabase.getStoreDatabase().containsKey(userName))
-                        if(loginDatabase.getStoreDatabase().get(userName).equals(password))
+                        if(loginDatabase.getStoreDatabase().get(userName).getPassword().equals(password))
+                        {
                         output = "Store Admin :- userName logged in.";
+                        try {
+                                goToStore(loginDatabase.getStoreDatabase().get(userName).getStore());
+                            } catch (IOException ex) {
+                                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                                System.out.println("UNABLE TO GO TO Store PAGE");
+                            }
+                        }
                         else
                             output = "Incorrect Password";
                     else
@@ -255,6 +263,21 @@ public class LoginController implements Initializable {
         Scene scene;
         Stage stage;
         loader.<WarehousePageController>getController().initialize(warehouse,warehouses);
+        scene = new Scene(root, 600,600);
+        stage = new Stage();
+        
+        stage.setTitle("SuperStore Management");
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+    
+    public void goToStore(Store store) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StorePage.fxml"));
+        Parent root = (Pane)loader.load();
+        Scene scene;
+        Stage stage;
+        loader.<StorePageController>getController().initialize(store,warehouses);
         scene = new Scene(root, 600,600);
         stage = new Stage();
         
