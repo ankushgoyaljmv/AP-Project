@@ -14,17 +14,18 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#goBack" text="Back" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#reset" text="Clear Details" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="About Us">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Porvil 2017304" />
+                  <MenuItem mnemonicParsing="false" text="Sanchit 2017312" />
             </items>
           </Menu>
         </menus>
@@ -36,7 +37,7 @@
             <TextField fx:id="userName" alignment="CENTER" layoutX="175.0" layoutY="221.0" onKeyPressed="#enterpress" prefHeight="25.0" prefWidth="266.0" promptText="Username" />
             <PasswordField fx:id="password" alignment="CENTER" layoutX="175.0" layoutY="246.0" onKeyPressed="#enterpress" onKeyReleased="#check" prefHeight="25.0" prefWidth="266.0" promptText="Password" />
             <Button fx:id="loginButton" alignment="CENTER" layoutX="108.0" layoutY="301.0" mnemonicParsing="false" onAction="#validateLogin" text="Login" />
-            <Button fx:id="resetButton" alignment="CENTER" layoutX="308.0" layoutY="301.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+            <Button fx:id="resetButton" alignment="CENTER" layoutX="308.0" layoutY="301.0" mnemonicParsing="false" onAction="#reset" text="Clear" />
             <Label fx:id="userType" layoutX="170.0" layoutY="105.0" prefHeight="64.0" prefWidth="275.0">
                <font>
                   <Font size="25.0" />

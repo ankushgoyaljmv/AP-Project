@@ -35,9 +35,9 @@ public class WarehouseDataDisplayController implements Initializable {
     private int type; //1-WAREHOUSE , 2-STORE
     private int sortPriceType=1;//1-asc , 2-desc
     
+    TableColumn<Item,String> nameColumn = new TableColumn<>("Name");
     TableColumn<Item,Double> priceColumn = new TableColumn<>("Price");
         
-    
     /**
      * Initializes the controller class.
      */
@@ -53,7 +53,6 @@ public class WarehouseDataDisplayController implements Initializable {
         priceColumn.sortTypeProperty().setValue(TableColumn.SortType.ASCENDING);
         setup();
         
-        
     }  
     
     public void initialize(Store store,int type) {
@@ -66,9 +65,13 @@ public class WarehouseDataDisplayController implements Initializable {
     }  
     
     public void setup(){
-        TableColumn<Item,String> nameColumn = new TableColumn<>("Name");
+        
         nameColumn.setMinWidth(200);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        
+        TableColumn<Item,String> IDColumn = new TableColumn<>("UID");
+        IDColumn.setMinWidth(50);
+        IDColumn.setCellValueFactory(new PropertyValueFactory<>("UID"));
         
         TableColumn<Item,Integer> quantityColumn = new TableColumn<>("Quantity");
         quantityColumn.setMinWidth(80);
@@ -76,7 +79,7 @@ public class WarehouseDataDisplayController implements Initializable {
                 
         priceColumn.setMinWidth(100);
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        //
+        
         if(type == 1)
             dataTV.setItems(getItems());
         else if(type == 2)
@@ -84,9 +87,10 @@ public class WarehouseDataDisplayController implements Initializable {
         else{
             System.out.println("WOW, CHECK HERE");
         }
-        dataTV.getColumns().addAll(nameColumn,quantityColumn,priceColumn);
+        dataTV.getColumns().addAll(IDColumn,nameColumn,quantityColumn,priceColumn);
         priceColumn.setSortType(TableColumn.SortType.ASCENDING);//check sorting stuff
-        dataTV.getSortOrder().setAll(priceColumn,quantityColumn);
+        nameColumn.setSortType(TableColumn.SortType.ASCENDING);//check sorting stuff
+        dataTV.getSortOrder().setAll(nameColumn,priceColumn,quantityColumn);
         
     } 
     
@@ -110,21 +114,20 @@ public class WarehouseDataDisplayController implements Initializable {
     }
     
     public void sort(){
-//        dataTV.sort
+        
         System.out.println("WTH - " + priceColumn.getSortType().name());
-//        dataTV.setSortType;
         if(this.sortPriceType == 1 ){
             System.out.println("before - ascending\nNow - descending");
-            priceColumn.sortTypeProperty().setValue(TableColumn.SortType.DESCENDING);
+            nameColumn.sortTypeProperty().setValue(TableColumn.SortType.DESCENDING);
             this.sortPriceType = 2;
-            this.sortB.setText("Price - Sort Ascending");
+            this.sortB.setText("Name - Sort Ascending");
         
         }
         else if(this.sortPriceType == 2 ){
             System.out.println("before - descending\nNow - ascending");
-            priceColumn.sortTypeProperty().setValue(TableColumn.SortType.ASCENDING);
+            nameColumn.sortTypeProperty().setValue(TableColumn.SortType.ASCENDING);
             this.sortPriceType = 1;
-            this.sortB.setText("Price - Sort Descending");
+            this.sortB.setText("Name - Sort Descending");
         }
         dataTV.sort();
         

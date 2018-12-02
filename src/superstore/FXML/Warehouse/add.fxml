@@ -25,6 +25,7 @@
             <TextField fx:id="kTF" alignment="CENTER" layoutX="123.0" layoutY="147.0" promptText="Enter k" />
             <TextField fx:id="hTF" alignment="CENTER" layoutX="123.0" layoutY="197.0" promptText="Enter h" />
             <Button fx:id="addItem" layoutX="387.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickOnAdd" prefHeight="51.0" prefWidth="90.0" text="Add Item" />
+            <TextField fx:id="uidTF" editable="false" layoutX="358.0" layoutY="48.0" />
          </children>
       </AnchorPane>
       <Button fx:id="addcommon" layoutX="261.0" layoutY="303.0" mnemonicParsing="false" onAction="#add1" prefHeight="25.0" prefWidth="80.0" text="Add" />

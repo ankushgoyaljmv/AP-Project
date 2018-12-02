@@ -77,22 +77,7 @@ public class WarehousePageController implements Initializable {
         }
         
     }    
-    
-    public void itemButtonOnClick() throws IOException{
-        System.out.println("item button clicked");
-        nextScreen(1);
-        
-    }
-    
-    public void itemButtonOnClick1() throws IOException{
-        System.out.println("item button1 clicked");
-        nextScreen(2);
-    }
-    public void itemButtonOnClick2() throws IOException{
-        System.out.println("item button2 clicked");
-        nextScreen(3);
-    }
-    
+       
     public void display(){
         System.out.println("\nDISPLAYING");
         this.warehouse.display();
@@ -112,43 +97,6 @@ public class WarehousePageController implements Initializable {
         stage.show();
     }
  
-    public void nextScreen(int n) throws IOException{//n--> 1-item  2-subcategory  3-category
-        String s="";
-        switch(n){
-            case 1:
-                s = "AddItemPopUp.fxml";
-                break;
-            case 2:
-                s = "AddSubCategoryPopUp.fxml";
-                break;
-//            case 3:
-//                s = "AddCategoryPopUp.fxml";
-//                break;
-        }
-        System.out.println("S:- " + s);
-        FXMLLoader loader1 = new FXMLLoader(getClass().getResource(s));
-        Parent root = (Pane)loader1.load();
-        switch(n){
-            case 1:
-                loader1.<AddItemPopUpController>getController().initialize(warehouse);
-                break;
-            case 2:
-                loader1.<AddSubCategoryPopUpController>getController().initialize(warehouse);
-                break;
-//            case 3:
-//                loader1.<AddCategoryPopUpController>getController().initialize(warehouse);
-//                break;
-        }
-//        loader1.<AddItemPopUpController>getController().initialize(warehouse);
-        scene = new Scene(root, 600,600);
-        stage = new Stage();
-        
-        stage.setTitle("SuperStore Management");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-    }
-    
     public void goToAdd() throws IOException{
         System.out.println("inside gotoadd");
         String s="Warehouse/add.fxml";

@@ -21,12 +21,14 @@ public class Store implements Functionalities,Serializable{
     private ArrayList<Item> items;
     private ArrayList<Category> categories;
     private Store_Admin admin;
+    private int UID;
 
     public Store(int ID, String name) {
         this.ID = ID;
         this.name = name;
         this.categories = new ArrayList<>();
         this.items = new ArrayList<>();
+        this.UID = 1;
     }
 
     public Store_Admin getAdmin() {
@@ -39,6 +41,14 @@ public class Store implements Functionalities,Serializable{
 
     public boolean isLinked(){
         return !(upwarehouse == null);
+    }
+    
+    public int getUID() {
+        return UID;
+    }
+
+    public void increamentUID() {
+        this.UID++;
     }
     
     public double getD() {

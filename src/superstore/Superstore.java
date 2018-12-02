@@ -18,12 +18,7 @@ import superstore.FXML.StartupController;
  * @author PD
  */
 public class Superstore extends Application {
-    
-    //private AllWarehouses warehouses = new AllWarehouses();
-    //private AllStores stores = new AllStores();
-    //private Superuser superuser = new Superuser(warehouses,stores);
-    private final int height = 600;
-    private final int width = 600;
+   
     private User_Login_Database loginDatabase ;
 
     @Override
@@ -55,23 +50,15 @@ public class Superstore extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-//        loginDatabase.put("user", "qwerty12Q");
-        //DELETE THE BELOW LINE
-//        this.loginDatabase.getWarehouses().getAllwarehouses().add(new Warehouse(200,"test"));
-//        Warehouse_Admin wa = new Warehouse_Admin("root","Qazwsx12",this.loginDatabase.getWarehouses().getAllwarehouses().get(0));
-//        wa.getWarehouse().addCategory("WarehouseAdmin@Category1");
-//        wa.getWarehouse().addSub_Category("WarehouseAdmin@Sub-Category1",wa.getWarehouse().getCategories().get(0));
-//        wa.getWarehouse().addItem(wa.getWarehouse().getCategories().get(0),wa.getWarehouse().getCategories().get(0).getSubcategories().get(0));
-//        this.loginDatabase.getWarehouseDatabase().put("test", wa);
-        //
-        
+            
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/Startup.fxml"));
         Parent root = (Pane)loader.load();
         loader.<StartupController>getController().initialize(loginDatabase,this.loginDatabase.getWarehouses(),this.loginDatabase.getStores(),this.loginDatabase.getSuperuser());
-        Scene scene = new Scene(root, height,width);
+        Scene scene = new Scene(root, 600,600);
         primaryStage.setTitle("SuperStore Management");
         primaryStage.setScene(scene);
         primaryStage.show();
+        
 //        primaryStage.setOnCloseRequest(e -> {
 //            try {
 //                stop();

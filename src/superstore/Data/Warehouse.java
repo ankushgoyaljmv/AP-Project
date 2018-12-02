@@ -21,6 +21,7 @@ public class Warehouse implements Functionalities,Serializable{
     private ArrayList<Item> items;
     private ArrayList<Category> categories;
     private Warehouse_Admin admin;
+    private int UID;
 
     public Warehouse(int ID, String name) {
         this.ID = ID;
@@ -28,6 +29,7 @@ public class Warehouse implements Functionalities,Serializable{
         this.items = new ArrayList<>();
         this.categories = new ArrayList<>();
         this.stores = new ArrayList<>();
+        this.UID = 1;
     }
 
     public Warehouse() {
@@ -46,7 +48,14 @@ public class Warehouse implements Functionalities,Serializable{
         this.D = D;
     }
 
+    public int getUID() {
+        return UID;
+    }
 
+    public void increamentUID() {
+        this.UID++;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

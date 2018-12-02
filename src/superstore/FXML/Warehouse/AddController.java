@@ -44,6 +44,8 @@ public class AddController implements Initializable {
     @FXML
     TextField kTF;
     @FXML
+    TextField uidTF;
+    @FXML
     Button addItem;
     @FXML
     Button addcommon;
@@ -270,9 +272,11 @@ public class AddController implements Initializable {
             if(checkIfItemExists(name)){
                 //item exists
                 this.ap2.setVisible(false);
+                this.uidTF.setText("");
             }
             else{
                 this.ap2.setVisible(true);
+                this.uidTF.setText("UID :- " + this.warehouse.getUID());
             }
         }
         else{
@@ -306,6 +310,8 @@ public class AddController implements Initializable {
 
             itemTemp.setPath(category + ">" + subcategory);
             itemTemp.setEOQ(this.warehouse.getD());
+            itemTemp.setUID(this.warehouse.getUID());
+            this.warehouse.increamentUID();
             this.warehouse.addItem(this.warehouse.getCategories().get(index), this.warehouse.getCategories().get(index).getSubcategories().get(index1),itemTemp);
             System.out.println(itemTemp);
             System.out.println("ITEM ADDED");
