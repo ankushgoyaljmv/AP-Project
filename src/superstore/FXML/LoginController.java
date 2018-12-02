@@ -192,8 +192,8 @@ public class LoginController implements Initializable {
             
             switch(this.type){
                 case 1:
-                    //if(userName.equals("root") && password.equals("Qazwsx12")){
-                    if(userName.equals("z") && password.equals("z")){
+                    if(userName.equals("root") && password.equals("Qazwsx12")){
+//                    if(userName.equals("z") && password.equals("z")){
                         
                         output = "SUPERUSER LOGIN SuccessFull";
                         try {
