@@ -37,6 +37,10 @@ public class Store implements Functionalities,Serializable{
         return ID;
     }
 
+    public boolean isLinked(){
+        return !(upwarehouse == null);
+    }
+    
     public double getD() {
         return D;
     }

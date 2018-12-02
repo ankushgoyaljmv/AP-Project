@@ -18,31 +18,22 @@
       <Button fx:id="addS" layoutX="51.0" layoutY="168.0" mnemonicParsing="false" onAction="#addStore" prefHeight="30.0" prefWidth="200.0" text="Add Store" />
       <Button fx:id="createWA" layoutX="51.0" layoutY="130.0" mnemonicParsing="false" onAction="#createWarehouseAdmin" prefHeight="30.0" prefWidth="200.0" text="Create Warehouse Adminstartor" />
       <Button fx:id="linkS" layoutX="51.0" layoutY="246.0" mnemonicParsing="false" onAction="#linkStoreToWarehouse" prefHeight="30.0" prefWidth="200.0" text="Link a store" />
-      <Button fx:id="checkSD" layoutX="51.0" layoutY="322.0" mnemonicParsing="false" onAction="#showStoreData" prefHeight="30.0" prefWidth="200.0" text="Check Store Data" />
-      <Button fx:id="checkWD" layoutX="51.0" layoutY="285.0" mnemonicParsing="false" onAction="#showWarehouseData" prefHeight="30.0" prefWidth="200.0" text="Check Warehouse Data" />
-      <AnchorPane fx:id="warehouseAP" layoutX="318.0" layoutY="64.0" prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: blue;">
-         <children>
-            <Label fx:id="warehouseIDL" alignment="CENTER" layoutX="57.0" layoutY="20.0" prefHeight="17.0" prefWidth="129.0" text="Warehouse ID :-" />
-            <TextField fx:id="warehouseNameTF" alignment="CENTER" layoutX="46.0" layoutY="49.0" promptText="Enter Warehouse Name" />
-            <Button fx:id="warehouseAddB" layoutX="71.0" layoutY="113.0" mnemonicParsing="false" onAction="#addWarehouseAdd" text="Add" />
-            <Button fx:id="warehouseCancelB" layoutX="122.0" layoutY="113.0" mnemonicParsing="false" onAction="#cancelWarehouseAdd" text="Cancel" />
-            <TextField fx:id="wDB" alignment="CENTER" layoutX="47.0" layoutY="82.0" promptText="Enter D" />
-         </children>
-      </AnchorPane>
-      <TextArea fx:id="consoleTA" editable="false" layoutX="94.0" layoutY="452.0" prefHeight="134.0" prefWidth="413.0" wrapText="true">
+      <Button fx:id="checkSD" layoutX="51.0" layoutY="383.0" mnemonicParsing="false" onAction="#showStoreData" prefHeight="30.0" prefWidth="200.0" text="Check Store Data" />
+      <Button fx:id="checkWD" layoutX="51.0" layoutY="346.0" mnemonicParsing="false" onAction="#showWarehouseData" prefHeight="30.0" prefWidth="200.0" text="Check Warehouse Data" />
+      <TextArea fx:id="consoleTA" editable="false" layoutX="53.0" layoutY="491.0" prefHeight="108.0" prefWidth="451.0" wrapText="true">
          <font>
             <Font size="16.0" />
          </font>
       </TextArea>
-      <Button fx:id="clearB" layoutX="521.0" layoutY="507.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
-      <ChoiceBox fx:id="warehouseCB" layoutX="51.0" layoutY="385.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="storeCB" layoutX="51.0" layoutY="419.0" prefWidth="150.0" />
-      <Label fx:id="warehouseID" layoutX="216.0" layoutY="389.0" prefHeight="17.0" prefWidth="65.0" text="ID :- " />
-      <Label fx:id="storeID" layoutX="216.0" layoutY="423.0" prefHeight="17.0" prefWidth="65.0" text="ID :- " />
-      <Button fx:id="checkWDB" layoutX="275.0" layoutY="385.0" mnemonicParsing="false" onAction="#showWD" text="Show" />
-      <Button fx:id="checkSDB" layoutX="274.0" layoutY="419.0" mnemonicParsing="false" onAction="#showSD" text="Show" />
-      <Button fx:id="checkCancelWDB" layoutX="337.0" layoutY="385.0" mnemonicParsing="false" onAction="#cancelWDB" text="Cancel" />
-      <Button fx:id="checkCancelSDB" layoutX="337.0" layoutY="419.0" mnemonicParsing="false" onAction="#cancelSDB" text="Cancel" />
+      <Button fx:id="clearB" layoutX="523.0" layoutY="533.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
+      <ChoiceBox fx:id="warehouseCB" layoutX="51.0" layoutY="422.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="storeCB" layoutX="51.0" layoutY="456.0" prefWidth="150.0" />
+      <Label fx:id="warehouseID" layoutX="216.0" layoutY="426.0" prefHeight="17.0" prefWidth="65.0" text="ID :- " />
+      <Label fx:id="storeID" layoutX="216.0" layoutY="460.0" prefHeight="17.0" prefWidth="65.0" text="ID :- " />
+      <Button fx:id="checkWDB" layoutX="274.0" layoutY="422.0" mnemonicParsing="false" onAction="#showWD" text="Show" />
+      <Button fx:id="checkSDB" layoutX="274.0" layoutY="456.0" mnemonicParsing="false" onAction="#showSD" text="Show" />
+      <Button fx:id="checkCancelWDB" layoutX="336.0" layoutY="422.0" mnemonicParsing="false" onAction="#cancelWDB" text="Cancel" />
+      <Button fx:id="checkCancelSDB" layoutX="337.0" layoutY="456.0" mnemonicParsing="false" onAction="#cancelSDB" text="Cancel" />
       <Button fx:id="createSA" layoutX="51.0" layoutY="210.0" mnemonicParsing="false" onAction="#createStoreAdmin" prefHeight="30.0" prefWidth="200.0" text="Create Store Adminstartor" />
       <AnchorPane fx:id="warehouseAdminAP" layoutX="318.0" layoutY="117.0" prefHeight="200.0" prefWidth="241.0" style="-fx-background-color: grey;">
          <children>
@@ -64,10 +55,28 @@
       </AnchorPane>
       <AnchorPane fx:id="storeAP" layoutX="318.0" layoutY="217.0" prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: red;">
          <children>
-            <Button fx:id="storeAddB" layoutX="66.0" layoutY="91.0" mnemonicParsing="false" onAction="#addStoreAdd" text="Add" />
-            <TextField fx:id="storeNameTF" alignment="CENTER" layoutX="46.0" layoutY="60.0" promptText="Enter Store Name" />
+            <Button fx:id="storeAddB" layoutX="67.0" layoutY="107.0" mnemonicParsing="false" onAction="#addStoreAdd" text="Add" />
+            <TextField fx:id="storeNameTF" alignment="CENTER" layoutX="46.0" layoutY="48.0" promptText="Enter Store Name" />
             <Label fx:id="storeIDL" alignment="CENTER" layoutX="56.0" layoutY="27.0" prefHeight="17.0" prefWidth="129.0" text="Store ID :-" />
-            <Button fx:id="storeCancelB" layoutX="121.0" layoutY="91.0" mnemonicParsing="false" onAction="#cancelStoreAdd" text="Cancel" />
+            <Button fx:id="storeCancelB" layoutX="122.0" layoutY="107.0" mnemonicParsing="false" onAction="#cancelStoreAdd" text="Cancel" />
+            <TextField fx:id="sDB" alignment="CENTER" layoutX="48.0" layoutY="82.0" promptText="Enter D" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="warehouseAP" layoutX="318.0" layoutY="64.0" prefHeight="146.0" prefWidth="241.0" style="-fx-background-color: blue;">
+         <children>
+            <Label fx:id="warehouseIDL" alignment="CENTER" layoutX="57.0" layoutY="20.0" prefHeight="17.0" prefWidth="129.0" text="Warehouse ID :-" />
+            <TextField fx:id="warehouseNameTF" alignment="CENTER" layoutX="46.0" layoutY="49.0" promptText="Enter Warehouse Name" />
+            <Button fx:id="warehouseAddB" layoutX="71.0" layoutY="113.0" mnemonicParsing="false" onAction="#addWarehouseAdd" text="Add" />
+            <Button fx:id="warehouseCancelB" layoutX="122.0" layoutY="113.0" mnemonicParsing="false" onAction="#cancelWarehouseAdd" text="Cancel" />
+            <TextField fx:id="wDB" alignment="CENTER" layoutX="47.0" layoutY="82.0" promptText="Enter D" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="linkAP" layoutX="50.0" layoutY="285.0" prefHeight="55.0" prefWidth="504.0" style="-fx-background-color: lightgreen;">
+         <children>
+            <ChoiceBox fx:id="slCB" layoutX="14.0" layoutY="15.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="wlCB" layoutX="199.0" layoutY="15.0" prefWidth="150.0" />
+            <Button fx:id="linkB" layoutX="392.0" layoutY="15.0" mnemonicParsing="false" onAction="#link" text="Link" />
+            <Button fx:id="cLB" layoutX="442.0" layoutY="15.0" mnemonicParsing="false" onAction="#clAPB" text="Cancel" />
          </children>
       </AnchorPane>
    </children>

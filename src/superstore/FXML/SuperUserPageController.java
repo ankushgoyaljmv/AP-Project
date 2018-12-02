@@ -64,6 +64,8 @@ public class SuperUserPageController implements Initializable {
     @FXML
     TextField wDB;
     @FXML
+    TextField sDB;
+    @FXML
     Button addS;
     @FXML
     Button warehouseCancelB;
@@ -119,6 +121,16 @@ public class SuperUserPageController implements Initializable {
     AnchorPane warehouseAdminAP;
     @FXML
     AnchorPane storeAdminAP;
+    @FXML
+    AnchorPane linkAP;
+    @FXML
+    ChoiceBox slCB;
+    @FXML
+    ChoiceBox wlCB;
+    @FXML
+    Button linkB;
+    @FXML
+    Button cLB;
 
     private Superuser superuser;
     private AllWarehouses warehouses;
@@ -155,6 +167,7 @@ public class SuperUserPageController implements Initializable {
         this.checkCancelSDB.setVisible(false);
         this.warehouseAdminAP.setVisible(false);
         this.storeAdminAP.setVisible(false);
+        this.linkAP.setVisible(false);
 
         refresh();
 
@@ -279,7 +292,23 @@ public class SuperUserPageController implements Initializable {
     }
 
     public void linkStoreToWarehouse() {
-        superuser.assignWarehouse();
+        this.linkAP.setVisible(true);
+        this.linkS.setDisable(true);
+        
+        this.slCB.getItems().clear();
+        for (int i = 0; i < this.stores.getAllstores().size(); i++) {
+            if(!this.stores.getAllstores().get(i).isLinked()){
+                String s = this.stores.getAllstores().get(i).getName();
+                this.slCB.getItems().add(s);
+            }
+        }
+
+        this.wlCB.getItems().clear();
+        for (int i = 0; i < this.warehouses.getAllwarehouses().size(); i++) {
+            String s = this.warehouses.getAllwarehouses().get(i).getName();
+                this.wlCB.getItems().add(s);
+        }
+        
         System.out.println("LINKING STORE TO WAREHOUSE");
     }
 
@@ -479,9 +508,12 @@ public class SuperUserPageController implements Initializable {
     public void addStoreAdd() {
         int id = this.stores.getStoreID();
         String name = this.storeNameTF.getText().trim();
+        String dd = this.sDB.getText();
 
-        if (!name.isEmpty()) {
+        if (!name.isEmpty() && !dd.isEmpty() ) {
+            Double D = Double.parseDouble(dd.trim());
             Store temp = new Store(id, name);
+            temp.setD(D);
             this.stores.getAllstores().add(temp);
             this.stores.incrementStoreID();
 
@@ -499,6 +531,7 @@ public class SuperUserPageController implements Initializable {
 
             this.storeIDL.setText("Store ID :- ");
             this.storeNameTF.setText("");
+            this.sDB.setText("");
 
             refresh();
         } else {
@@ -524,6 +557,7 @@ public class SuperUserPageController implements Initializable {
         this.addS.setDisable(false);
         this.storeIDL.setText("Store ID :- ");
         this.storeNameTF.setText("");
+        this.sDB.setText("");
         this.consoleTA.setText("");
     }
 
@@ -624,6 +658,41 @@ public class SuperUserPageController implements Initializable {
     public void createStoreAdmin() {
         this.storeAdminAP.setVisible(true);
         this.createSA.setDisable(true);
+    }
+    
+    public void link(){
+        
+        int windex = this.wlCB.getSelectionModel().getSelectedIndex();
+        int sindex = this.slCB.getSelectionModel().getSelectedIndex();
+        
+        if( windex >= 0 && sindex >= 0){
+            String storecurname = (String)this.slCB.getSelectionModel().getSelectedItem();//MAY HAVE ERROR
+            System.out.println("CURRENT STORE SELECTEED NAME :- " + storecurname);
+            Store temp = new Store(9745,storecurname);
+            int index = this.stores.getAllstores().indexOf(temp);
+            System.out.println("before linking");
+            System.out.println(this.stores.getAllstores().get(index).isLinked());
+            this.stores.getAllstores().get(index).setUpwarehouse(this.warehouses.getAllwarehouses().get(windex));
+            System.out.println("after linking");
+            System.out.println(this.stores.getAllstores().get(index).isLinked());
+        
+            this.linkAP.setVisible(false);
+            this.linkS.setDisable(false);
+            
+        }
+        else{
+            String s = "SELECT STORE AND WAREHOUSE FIRST";
+            System.out.println(s);
+            this.consoleTA.setText(s);
+        }
+    }
+    
+    public void clAPB(){
+        this.slCB.getItems().clear();
+        this.wlCB.getItems().clear();
+        this.linkAP.setVisible(false);
+        this.linkS.setDisable(false);
+
     }
 
 }
